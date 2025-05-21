@@ -1,42 +1,91 @@
 body {
-  font-family: "Hiragino Maru Gothic ProN", "游ゴシック", "メイリオ", sans-serif;
-  background: linear-gradient(to bottom, #fff0f5, #ffffff);
+  font-family: "Hiragino Maru Gothic ProN", "Rounded Mplus 1c", "メイリオ", sans-serif;
+  background: linear-gradient(to bottom right, #ffe6f0, #e0f7fa);
   color: #444;
-  max-width: 800px;
-  margin: 50px auto;
+  max-width: 900px;
+  margin: 40px auto;
   padding: 30px;
   border-radius: 20px;
-  box-shadow: 0 0 15px rgba(255, 182, 193, 0.2);
+  box-shadow: 0 0 20px rgba(255, 182, 193, 0.2);
   line-height: 1.8;
+  transition: all 0.3s;
 }
 
-h1 {
-  color: #b19cd9;
-  font-size: 2.4em;
+header {
+  background: linear-gradient(to right, #ffdef2, #e5e0ff);
+  padding: 20px;
+  border-radius: 20px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  margin-bottom: 30px;
   text-align: center;
-  margin-bottom: 10px;
+}
+
+header h1 {
+  margin: 0;
+  font-size: 2.4em;
+  color: #b19cd9;
+}
+
+nav {
+  margin-top: 10px;
+}
+
+nav a {
+  display: inline-block;
+  margin: 6px 12px;
+  padding: 8px 14px;
+  background: #ffd6ec;
+  color: #d642a4;
+  font-weight: bold;
+  border-radius: 12px;
+  text-decoration: none;
+  transition: 0.2s;
+}
+
+nav a:hover {
+  background: #fbc2e5;
+  color: #fff;
+  transform: translateY(-2px);
 }
 
 h2 {
+  font-size: 1.6em;
   color: #ff69b4;
-  font-size: 1.5em;
-  border-bottom: 2px dotted #ffb6c1;
-  padding-bottom: 4px;
+  border-bottom: 2px dashed #f8b9d4;
+  padding-bottom: 6px;
   margin-top: 40px;
-}
-
-a {
-  color: #d38adb;
-  text-decoration: none;
-  font-weight: bold;
-}
-
-a:hover {
-  text-decoration: underline;
-  color: #ff69b4;
 }
 
 img {
   border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  max-width: 100%;
+  height: auto;
+  margin: 20px 0;
+}
+
+/* ぷわぷわボタン（使いたいところに class="pwapwa-btn" つけるだけ） */
+.pwapwa-btn {
+  display: inline-block;
+  background: #ffaad4;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 30px;
+  text-decoration: none;
+  font-weight: bold;
+  box-shadow: 0 4px 8px rgba(255, 105, 180, 0.3);
+  transition: 0.2s;
+}
+
+.pwapwa-btn:hover {
+  background: #ff77c0;
+  transform: scale(1.05);
+}
+
+/* キャプション */
+.caption {
+  text-align: center;
+  font-size: 1rem;
+  color: #888;
+  margin-top: 4px;
 }
