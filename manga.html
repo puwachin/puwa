@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>漫画ギャラリー</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      background-color: #fff;
+      color: #333;
+      max-width: 900px;
+      margin: 40px auto;
+      padding: 20px;
+    }
+
+    h1 {
+      text-align: center;
+      color: #2c3e50;
+    }
+
+    .comic {
+      margin-bottom: 60px;
+    }
+
+    .comic img {
+      width: 100%;
+      max-width: 800px;
+      height: auto;
+      display: block;
+      margin: 0 auto;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      cursor: zoom-in;
+      transition: 0.2s;
+    }
+
+    .caption {
+      text-align: center;
+      font-size: 1rem;
+      color: #666;
+      margin-top: 8px;
+    }
+
+    /* Lightbox */
+    .lightbox {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: rgba(0,0,0,0.8);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 999;
+    }
+
+    .lightbox img {
+      max-width: 90%;
+      max-height: 90%;
+      border-radius: 8px;
+      box-shadow: 0 0 20px rgba(255,255,255,0.3);
+    }
+
+    .lightbox:active {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>漫画</h1>
+
+  <div class="comic">
+    <img src="images/IMG_7339.jpg">
+  </div>
+
+  <div class="comic">
+    <img src="images/IMG_7341.jpg">
+  </div>
+
+   <div class="comic">
+    <img src="images/IMG_7342.jpg">
+  </div>
+
+  <div class="comic">
+    <img src="images/IMG_7343.jpg">
+  </div>
+
+ <div class="comic">
+    <img src="images/IMG_7344.jpg">
+  </div>
+
+  <div class="comic">
+    <img src="images/IMG_7345.jpg">
+  </div>
+
+   <div class="comic">
+    <img src="images/IMG_7346.jpg">
+  </div>
+
+  <div class="comic">
+    <img src="images/IMG_7347.jpg">
+  </div>
+
+  <div class="comic">
+    <img src="images/IMG_7338.jpg">
+  </div>
+
+  <div class="comic">
+    <img src="images/IMG_7349.jpg">
+  </div>
+
+   <div class="comic">
+    <img src="images/IMG_7350.jpg">
+  </div>
+
+  <div class="comic">
+    <img src="images/IMG_7351.jpg">
+  </div>
+
+ <div class="comic">
+    <img src="images/IMG_7352.jpg">
+  </div>
+
+  <div class="comic">
+    <img src="images/IMG_7353.jpg">
+  </div>
+
+   <div class="comic">
+    <img src="images/IMG_7354.jpg">
+  </div>
+
+  <div class="comic">
+    <img src="images/IMG_7355.jpg">
+  </div>
+
+  <div class="comic">
+    <img src="images/IMG_7356.jpg">
+  </div>
+
+ <div class="comic">
+    <img src="images/IMG_7357.jpg">
+  </div>
+
+  <div class="comic">
+    <img src="images/IMG_7358.jpg">
+  </div>
+
+   <div class="comic">
+    <img src="images/IMG_7359.jpg">
+  </div>
+
+  <div class="comic">
+    <img src="images/IMG_7360.jpg">
+  </div>
+
+
+  <!-- Lightbox部分 -->
+  <div class="lightbox" id="lightbox" onclick="closeLightbox()">
+    <img id="lightbox-img" src="">
+  </div>
+
+  <script>
+    function openLightbox(src) {
+      const lightbox = document.getElementById("lightbox");
+      const img = document.getElementById("lightbox-img");
+      img.src = src;
+      lightbox.style.display = "flex";
+    }
+
+    function closeLightbox() {
+      document.getElementById("lightbox").style.display = "none";
+    }
+  </script>
+
+</body>
+</html>
