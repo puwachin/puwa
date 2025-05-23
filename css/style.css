@@ -47,7 +47,7 @@ body {
   padding: 40px 20px;
 }
 .lightbox-content {
-  max-width: 200px;
+  max-width: 300px;
   margin: auto;
   display: flex;
   flex-direction: column;
