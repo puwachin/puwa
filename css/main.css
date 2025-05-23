@@ -31,9 +31,8 @@
 
 
 body {
-/* やさしい背景パターン */
 body.pattern-bg {
-  background: #fffdf6 url("images/bg-stars.png") repeat;
+  background: #accf7e url("images/bg-stars.png") repeat;
   background-size: 200px auto;
 }
 
@@ -41,12 +40,10 @@ body.pattern-bg {
   display: none;
 }
 
-/* 隠れてるシリーズ本体 */
 .comic-series.hidden {
   display: none;
 }
 
-/* 展開時 */
 .comic-series {
   margin-top: 10px;
   display: flex;
@@ -55,7 +52,6 @@ body.pattern-bg {
   align-items: center;
 }
 
-/* サムネイルスタイル */
 .thumbnail {
   width: 100%;
   border-radius: 12px;
@@ -66,7 +62,6 @@ body.pattern-bg {
   transform: scale(1.03);
 }
 
-/* Lightbox中央表示 */
 .lightbox {
   position: fixed;
   top: 0;
@@ -113,7 +108,7 @@ body.pattern-bg {
 
 .manga-title {
   font-size: 2em;
-  color: #b85b32;
+  color: #58c92c;
   text-align: center;
   margin: 40px 0 20px;
 }
@@ -128,7 +123,7 @@ body.pattern-bg {
 
 .comic-card {
   background: #fffef3;
-  border: 4px dotted #ffdca2;
+  border: 4px dotted #8ddb27;
   border-radius: 16px;
   width: 220px;
   padding: 15px;
@@ -149,12 +144,12 @@ body.pattern-bg {
 .comic-caption {
   font-size: 1em;
   text-align: center;
-  color: #5c3c1a;
+  color: #8ddb27;
 }
 
   font-family: 'Zen Maru Gothic', 'Rounded Mplus 1c', 'メイリオ', sans-serif;
   background: linear-gradient(to bottom right, #fff6d1, #fffaf0);
-  color: #4b2e23;
+  color: #8ddb27;
   max-width: 900px;
   margin: 40px auto;
   padding: 30px;
@@ -175,7 +170,7 @@ header {
 header h1 {
   margin: 0;
   font-size: 2.5em;
-  color: #b85b32;
+  color: #8ddb27;
 }
 
 nav a {
@@ -191,7 +186,7 @@ nav a {
 }
 
 nav a:hover {
-  background: #f9b265;
+  background: #8ddb27;
   color: #fff;
   transform: translateY(-2px);
 }
@@ -199,7 +194,7 @@ nav a:hover {
 h2 {
   font-size: 1.6em;
   color: #b85b32;
-  border-bottom: 2px dashed #ffc107;
+  border-bottom: 2px dashed #8ddb27;
   padding-bottom: 6px;
   margin-top: 40px;
 }
@@ -215,7 +210,7 @@ img {
 .manga-title {
   font-family: 'Yusei Magic', cursive;
   font-size: 2.4em;
-  color: hsl(33, 100%, 44%);
+  color: #8ddb27(33, 100%, 44%);
   text-align: center;
   margin-bottom: 30px;
   text-shadow: 2px 2px 4px rgba(255, 170, 170, 0.4);
@@ -223,27 +218,27 @@ img {
 
 .comic {
   background: #fffaf0;
-  border: 4px dotted #ffdfa1;
+  border: 4px dotted #a0d871;
   border-radius: 20px;
   padding: 15px;
   margin-bottom: 40px;
-  box-shadow: 0 2px 8px rgba(255, 198, 128, 0.2);
+  box-shadow: 0 2px 8px rgba(51, 197, 21, 0.432);
 }
 
 .pwapwa-btn {
   display: inline-block;
-  background: #f9b265;
+  background: #8ddb27;
   color: white;
   padding: 10px 20px;
   border-radius: 30px;
   text-decoration: none;
   font-weight: bold;
-  box-shadow: 0 4px 8px rgba(255, 105, 0, 0.2);
+  box-shadow: 0 4px 8px rgba(30, 255, 0, 0.377);
   transition: 0.2s;
 }
 
 .pwapwa-btn:hover {
-  background: #f7942d;
+  background: #8ddb27;
   transform: scale(1.05);
 }
 

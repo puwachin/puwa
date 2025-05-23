@@ -15,7 +15,7 @@ body {
 }
 .comic-card {
   background: #fff;
-  border: 4px dotted #ffdd99;
+  border: 4px dotted #62b840;
   border-radius: 16px;
   padding: 10px;
   width: 200px;
@@ -32,7 +32,7 @@ body {
 .comic-caption {
   margin-top: 8px;
   font-weight: bold;
-  color: #b85b32;
+  color: #79cf28;
 }
 .lightbox {
   display: none;
