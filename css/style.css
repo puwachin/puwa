@@ -103,28 +103,7 @@ header {
       transition: 0.2s;
     }
 
-    .back-home {
-  text-align: center;
-  margin: 60px 0 40px;
-}
-
-.home-button {
-  display: inline-block;
-  background: #ffdd99;
-  color: #5c3c1a;
-  font-size: 1.2em;
-  font-weight: bold;
-  padding: 14px 28px;
-  border-radius: 30px;
-  text-decoration: none;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-  transition: all 0.2s;
-}
-
-.home-button:hover {
-  background: #ffc066;
-  transform: scale(1.05);
-}
+    
 
 .hero-img {
   width: 100%;
@@ -193,6 +172,13 @@ header {
   z-index: 10;
 }
 
+.header-bg,
+.header-chara,
+.site-logo {
+  border-radius: 0;
+  box-shadow: none;
+}
+
 @keyframes fadeInUp {
   from {
     opacity: 0;
@@ -202,4 +188,26 @@ header {
     opacity: 1;
     transform: translateY(0);
   }
+}
+.back-home {
+  text-align: center;
+  margin: 60px 0 40px;
+}
+
+.home-button {
+  display: inline-block;
+  background: #ffdd99;
+  color: #5c3c1a;
+  font-size: 1.2em;
+  font-weight: bold;
+  padding: 14px 28px;
+  border-radius: 30px;
+  text-decoration: none;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  transition: all 0.2s;
+}
+
+.home-button:hover {
+  background: #ffc066;
+  transform: scale(1.05);
 }
