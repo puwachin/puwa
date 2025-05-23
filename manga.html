@@ -1,189 +1,108 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-  <link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic&display=swap" rel="stylesheet">
-  <meta name="robots" content="noindex,noarchive,nofollow,noimageindex">
   <meta charset="UTF-8">
+  <title>漫画 - ぷわぷわらんど</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, noarchive, nofollow, noimageindex">
+  <link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic&family=Yusei+Magic&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/main.css">
-  <title>漫画</title>
-  <style>
-    body {
-      font-family: 'Zen Maru Gothic', 'Rounded Mplus 1c', 'メイリオ', sans-serif;
-      background-color: #fff;
-      color: #333;
-      max-width: 900px;
-      margin: 40px auto;
-      padding: 20px;
-    }
-
-    h1 {
-      text-align: center;
-      color: #2c3e50;
-    }
-
-    .comic {
-      margin-bottom: 60px;
-    }
-
-    .comic img {
-      width: 100%;
-      max-width: 800px;
-      height: auto;
-      display: block;
-      margin: 0 auto;
-      border: 1px solid #ccc;
-      border-radius: 8px;
-      cursor: zoom-in;
-      transition: 0.2s;
-    }
-
-    .caption {
-      text-align: center;
-      font-size: 1rem;
-      color: #666;
-      margin-top: 8px;
-    }
-
-    /* Lightbox */
-    .lightbox {
-      position: fixed;
-      top: 0; left: 0;
-      width: 100vw;
-      height: 100vh;
-      background: rgba(0,0,0,0.8);
-      display: none;
-      align-items: center;
-      justify-content: center;
-      z-index: 999;
-    }
-
-    .lightbox img {
-      max-width: 90%;
-      max-height: 90%;
-      border-radius: 8px;
-      box-shadow: 0 0 20px rgba(255,255,255,0.3);
-    }
-
-    .lightbox:active {
-      display: none;
-    }
-  </style>
 </head>
-<body>
+<body class="pattern-bg">
 
-  <h1 class="manga-title">漫画まとめ</h1>
-
-
-  <h2 class="comic-section">バカシンジ</h2>
-
-  <div class="comic">
-    <img src="images/IMG_7339.jpg">
-  </div>
-
-<h2 class="comic-section">そちがよ</h2>
-  <div class="comic">
-    <img src="images/IMG_7341.jpg">
-  </div>
-
-  <h2 class="comic-section">添い寝</h2>
-   <div class="comic">
-    <img src="images/IMG_7342.jpg">
-  </div>
-
-<h2 class="comic-section">逃走</h2>
-  <div class="comic">
-    <img src="images/IMG_7343.jpg">
-  </div>
-
-  <h2 class="comic-section">本予備</h2>
- <div class="comic">
-    <img src="images/IMG_7344.jpg">
-  </div>
-  <div class="comic">
-    <img src="images/IMG_7345.jpg">
-  </div>
-
-  <h2 class="comic-section">エイプリルフール</h2>
-   <div class="comic">
-    <img src="images/IMG_7346.jpg">
-  </div>
-
-  <h2 class="comic-section">流れ星</h2>
-  <div class="comic">
-    <img src="images/IMG_7347.jpg">
-  </div>
-
-  <h2 class="comic-section">すいか割り</h2>
-  <div class="comic">
-    <img src="images/IMG_7348.jpg">
-  </div>
-
-  <h2 class="comic-section">海賊</h2>
-  <div class="comic">
-    <img src="images/IMG_7349.jpg">
-  </div>
-
-  <h2 class="comic-section">カッパ</h2>
-   <div class="comic">
-    <img src="images/IMG_7350.jpg">
-  </div>
-  <div class="comic">
-    <img src="images/IMG_7351.jpg">
-  </div>
- <div class="comic">
-    <img src="images/IMG_7352.jpg">
-  </div>
-  <div class="comic">
-    <img src="images/IMG_7353.jpg">
-  </div>
-   <div class="comic">
-    <img src="images/IMG_7354.jpg">
-  </div>
-  <div class="comic">
-    <img src="images/IMG_7355.jpg">
-  </div>
-
-  <h2 class="comic-section">サンリオ</h2>
-  <div class="comic">
-    <img src="images/IMG_7356.jpg">
-  </div>
-
- <h2 class="comic-section">狛枝が猫になっちゃったはなし</h2>
- <div class="comic">
-    <img src="images/IMG_7357.jpg">
-  </div>
-  <div class="comic">
-    <img src="images/IMG_7358.jpg">
-  </div>
-   <div class="comic">
-    <img src="images/IMG_7359.jpg">
-  </div>
-  <div class="comic">
-    <img src="images/IMG_7360.jpg">
-  </div>
-
-  <p style="text-align:center;">
-  <a href="index.html" class="pwapwa-btn">🏠 ホームにもどる</a>
-</p>
-
-
-  <!-- Lightbox部分 -->
   <div class="lightbox" id="lightbox" onclick="closeLightbox()">
-    <img id="lightbox-img" src="">
+  <img id="lightbox-img" src="">
+</div>
+
+  <header>
+    <button class="menu-toggle" aria-label="メニューを開く">&#9776;</button>
+    <nav class="main-nav">
+      <a href="index.html">ホーム</a>
+      <a href="comic.html">コミック</a>
+      <a href="play.html">ゲーム</a>
+      <a href="news.html">おしらせ</a>
+    </nav>
+  </header>
+
+  <div class="lightbox" id="lightbox" onclick="closeLightbox()">
+  <img id="lightbox-img" src="">
+</div>
+
+<main>
+  <h1 class="manga-title">漫画</h1>
+
+  <main>
+    <section class="comic-list">
+
+      <div class="comic-card">
+        <div class="comic-caption">バカシンジ</div>
+        <img src="images/IMG_7339.jpg" class="thumbnail" onclick="openSeries(['images/IMG_7339.jpg'])">
+      </div>
+
+      <div class="comic-card">
+        <div class="comic-caption">そちがよ</div>
+        <img src="images/IMG_7341.jpg" class="thumbnail" onclick="openSeries(['images/IMG_7341.jpg'])">
+      </div>
+
+      <div class="comic-card">
+        <div class="comic-caption">添い寝</div>
+        <img src="images/IMG_7342.jpg" class="thumbnail" onclick="openSeries(['images/IMG_7342.jpg'])">
+      </div>
+
+      <div class="comic-card">
+        <div class="comic-caption">逃走</div>
+        <img src="images/IMG_7343.jpg" class="thumbnail" onclick="openSeries(['images/IMG_7343.jpg'])">
+      </div>
+
+      <div class="comic-card">
+        <div class="comic-caption">本予備</div>
+        <img src="images/IMG_7344.jpg" class="thumbnail" onclick="openSeries(['images/IMG_7344.jpg', 'images/IMG_7345.jpg'])">
+      </div>
+
+      <div class="comic-card">
+        <div class="comic-caption">エイプリルフール</div>
+        <img src="images/IMG_7346.jpg" class="thumbnail" onclick="openSeries(['images/IMG_7346.jpg'])">
+      </div>
+
+      <div class="comic-card">
+        <div class="comic-caption">流れ星</div>
+        <img src="images/IMG_7347.jpg" class="thumbnail" onclick="openSeries(['images/IMG_7347.jpg'])">
+      </div>
+
+      <div class="comic-card">
+        <div class="comic-caption">すいか割り</div>
+        <img src="images/IMG_7348.jpg" class="thumbnail" onclick="openSeries(['images/IMG_7348.jpg'])">
+      </div>
+
+      <div class="comic-card">
+        <div class="comic-caption">海賊</div>
+        <img src="images/IMG_7349.jpg" class="thumbnail" onclick="openSeries(['images/IMG_7349.jpg'])">
+      </div>
+
+      <div class="comic-card">
+        <div class="comic-caption">カッパ</div>
+        <img src="images/IMG_7350.jpg" class="thumbnail" onclick="openSeries(['images/IMG_7350.jpg', 'images/IMG_7351.jpg', 'images/IMG_7352.jpg', 'images/IMG_7353.jpg', 'images/IMG_7354.jpg', 'images/IMG_7355.jpg'])">
+      </div>
+
+      <div class="comic-card">
+        <div class="comic-caption">サンリオ</div>
+        <img src="images/IMG_7356.jpg" class="thumbnail" onclick="openSeries(['images/IMG_7356.jpg'])">
+      </div>
+
+      <div class="comic-card">
+        <div class="comic-caption">狛枝が猫になっちゃったはなし</div>
+        <img src="images/IMG_7357.jpg" class="thumbnail" onclick="openSeries(['images/IMG_7357.jpg', 'images/IMG_7358.jpg', 'images/IMG_7359.jpg', 'images/IMG_7360.jpg'])">
+      </div>
+
+    </section>
+  </main>
+
+  <div class="lightbox" id="lightbox" onclick="closeLightbox()">
+    <div class="lightbox-content" id="lightbox-content"></div>
   </div>
 
-  <script>
-    function openLightbox(src) {
-      const lightbox = document.getElementById("lightbox");
-      const img = document.getElementById("lightbox-img");
-      img.src = src;
-      lightbox.style.display = "flex";
-    }
-
-    function closeLightbox() {
-      document.getElementById("lightbox").style.display = "none";
-    }
-  </script>
-
+  <script src="js/main.js"></script>
+</body>
+</html>
 </body>
 </html>

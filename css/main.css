@@ -1,4 +1,157 @@
+
+.lightbox {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0,0,0,0.85);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  overflow: auto;
+  padding: 40px 20px;
+}
+
+#lightbox-content {
+  max-width: 800px;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+#lightbox-content img {
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+  box-shadow: 0 0 12px rgba(0,0,0,0.3);
+}
+
+
 body {
+/* やさしい背景パターン */
+body.pattern-bg {
+  background: #fffdf6 url("images/bg-stars.png") repeat;
+  background-size: 200px auto;
+}
+
+.comic-series.hidden {
+  display: none;
+}
+
+/* 隠れてるシリーズ本体 */
+.comic-series.hidden {
+  display: none;
+}
+
+/* 展開時 */
+.comic-series {
+  margin-top: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: center;
+}
+
+/* サムネイルスタイル */
+.thumbnail {
+  width: 100%;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+.thumbnail:hover {
+  transform: scale(1.03);
+}
+
+/* Lightbox中央表示 */
+.lightbox {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0,0,0,0.8);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+}
+
+.lightbox img {
+  max-width: 90%;
+  max-height: 90%;
+  border-radius: 12px;
+  box-shadow: 0 0 20px rgba(255,255,255,0.3);
+  background: white;
+  padding: 5px;
+}
+
+
+.multi-comic {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+.multi-comic img {
+  width: 100px;
+  height: auto;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.multi-comic img:hover {
+  transform: scale(1.05);
+}
+
+
+.manga-title {
+  font-size: 2em;
+  color: #b85b32;
+  text-align: center;
+  margin: 40px 0 20px;
+}
+
+.comic-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 30px;
+  padding: 0 20px 40px;
+}
+
+.comic-card {
+  background: #fffef3;
+  border: 4px dotted #ffdca2;
+  border-radius: 16px;
+  width: 220px;
+  padding: 15px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+  transition: transform 0.2s;
+}
+
+.comic-card:hover {
+  transform: scale(1.03);
+}
+
+.comic-card img {
+  width: 100%;
+  border-radius: 12px;
+  margin-bottom: 10px;
+}
+
+.comic-caption {
+  font-size: 1em;
+  text-align: center;
+  color: #5c3c1a;
+}
+
   font-family: 'Zen Maru Gothic', 'Rounded Mplus 1c', 'メイリオ', sans-serif;
   background: linear-gradient(to bottom right, #fff6d1, #fffaf0);
   color: #4b2e23;
