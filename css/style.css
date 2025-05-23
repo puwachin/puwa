@@ -4,19 +4,8 @@ body {
   background: #fffef6;
   margin: 0;
   padding: 0;
-  color: #4b2e23;
   text-align: center;
 }
-
-header {
-  background: #ffe0b2;
-  padding: 20px;
-}
-
-h1 {
-  margin: 0;
-}
-
 .comic-list {
   display: flex;
   flex-wrap: wrap;
@@ -24,7 +13,6 @@ h1 {
   gap: 20px;
   padding: 20px;
 }
-
 .comic-card {
   background: #fff;
   border: 4px dotted #ffdd99;
@@ -32,25 +20,20 @@ h1 {
   padding: 10px;
   width: 200px;
 }
-
 .thumbnail {
   width: 100%;
   border-radius: 12px;
   cursor: pointer;
   transition: transform 0.2s;
 }
-
 .thumbnail:hover {
   transform: scale(1.05);
 }
-
 .comic-caption {
   margin-top: 8px;
   font-weight: bold;
   color: #b85b32;
 }
-
-/* Lightbox */
 .lightbox {
   display: none;
   position: fixed;
@@ -63,15 +46,13 @@ h1 {
   overflow-y: auto;
   padding: 40px 20px;
 }
-
 .lightbox-content {
-  max-width: 800px;
+  max-width: 600px;
   margin: auto;
   display: flex;
   flex-direction: column;
   gap: 20px;
 }
-
 .lightbox-content img {
   width: 100%;
   border-radius: 12px;
