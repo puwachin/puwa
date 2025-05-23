@@ -1,18 +1,25 @@
 
 body {
   margin: 0;
+  padding: 0;
   font-family: 'Zen Maru Gothic', sans-serif;
+  font-size: 16px;
   background: #fffef6;
-  text-align: center;
+  line-height: 1.6;
 }
 
-body {
-  font-family: 'Zen Maru Gothic', sans-serif;
-  background: #fffef6;
-  margin: 0;
-  padding: 0;
-  text-align: center;
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
 }
+
+.container {
+  width: 90%;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
 .comic-list {
   display: flex;
   flex-wrap: wrap;
@@ -210,4 +217,32 @@ header {
 .home-button:hover {
   background: #ffc066;
   transform: scale(1.05);
+}
+
+@media (max-width: 768px) {
+  .main-nav {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .comic-card {
+    width: 90%;
+  }
+
+  .home-button {
+    font-size: 1em;
+    padding: 12px 20px;
+  }
+}
+
+.text-center {
+  text-align: center;
+}
+
+h2 {
+  color: #e67e22;
+}
+
+.comic-caption{
+  text-align: center;
 }
