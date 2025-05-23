@@ -25,7 +25,7 @@ function openSeries(images) {
   });
 
   const spacer = document.createElement("div");
-  spacer.style.height = "30vh";
+  spacer.style.height = "100vh";
   container.appendChild(spacer);
 
   document.getElementById("lightbox").style.display = "flex";
