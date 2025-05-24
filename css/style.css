@@ -128,6 +128,8 @@ header img.site-logo {
   justify-content: center;
   gap: 20px;
   padding: 30px 10px;
+  transform: translateX(-50%);
+  z-index: 10;
 }
 
 .main-nav a {
@@ -147,29 +149,33 @@ header img.site-logo {
   background: #ffd17e;
   transform: scale(1.05);
 }
-.header-wrapper {
-  position: relative;
+.header-chara-wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
   width: 100%;
-  max-width: 1000px;
-  margin: 0 auto;
-  height: auto;
+  pointer-events: none; 
+  z-index: 0;
 }
 
 .header-bg {
   width: 100%;
   display: block;
+  position: relative;     /* ←追加 */
+  z-index: 0;              /* ←追加して背景を一番下に */
 }
 
 .header-chara {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  pointer-events: none;
-  animation: fadeInUp 1.2s ease-out 0.4s forwards;
+  pointer-events: auto;
   opacity: 0;
-  transform: translateY(20px);
+  animation: fadeInUp 1.2s ease-out 0.4s forwards;
+  transform: none; 
+  transition: transform 0.2s ease;
+  cursor: pointer;
+  position: relative;
+  z-index: 0;
 }
+
 
 .site-logo {
   position: absolute;
