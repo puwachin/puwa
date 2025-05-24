@@ -124,9 +124,13 @@ header img.site-logo {
 
 .main-nav {
   display: flex;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
   justify-content: center;
+  align-items: center;
   gap: 20px;
+  overflow-x: auto;
+  white-space: nowrap;
+  height: 100;
   padding: 30px 10px;
   transform: translateX(-50%);
   z-index: 10;
@@ -135,8 +139,12 @@ header img.site-logo {
 .main-nav a {
   display: inline-block;
   font-size: 1.4em;
+  flex-shrink: 0;
   padding: 12px 24px;
   border-radius: 20px;
+  line-height: 1;
+  display: flex;
+  height: 100%;
   background: #ffeec4;
   color: #5c3c1a;
   text-decoration: none;
@@ -219,12 +227,6 @@ header img.site-logo {
   transform: scale(1.05);
 }
 
-@media (max-width: 768px) {
-  .main-nav {
-    flex-direction: column;
-    gap: 12px;
-  }
-
   .comic-card {
     width: 90%;
   }
@@ -233,7 +235,6 @@ header img.site-logo {
     font-size: 1em;
     padding: 12px 20px;
   }
-}
 
 .text-center {
   text-align: center;
