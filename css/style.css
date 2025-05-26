@@ -45,7 +45,7 @@ body {
 
 .komaeda {
   position: absolute;
-  top: 30%;
+  top: 40%;
   left: 10%;
   bottom: 0;
   width: 200px;
@@ -54,7 +54,7 @@ body {
 
 .hinata {
   position: absolute;
-  top: 30%;
+  top: 40%;
   right: 10%;
   bottom: 0;
   width: 160px;
@@ -63,7 +63,7 @@ body {
 
 .kanban {
   position: absolute;
-  top: -10%;
+  top: 0%;
   left: 10%;
   width: 300px;
   animation-delay: 0.8s;
