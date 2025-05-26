@@ -5,6 +5,15 @@ body {
   background: #f5c959;
   overflow-x: hidden;
 }
+
+.content-box {
+  background: rgb(255, 255, 255);
+  border: 4px dotted #f5a623;
+  max-width: 500px;
+  margin: 30px auto;
+  padding: 20px;
+  border-radius: 16px;
+}
 .wrapper {
   width: 100%;
   max-width: 1000px;
@@ -169,7 +178,7 @@ img {
   width: 100%;
   margin: 0 auto;
   background: #fff;
-  border: 4px dotted #62b840;
+  border: 4px dotted #f5a623;
   border-radius: 16px;
   padding: 10px;
 }
@@ -185,7 +194,7 @@ img {
 .comic-caption {
   margin-top: 10px;
   font-weight: bold;
-  color: #4cc407;
+  color: #f5a623;
 }
 .lightbox {
   display: none;
@@ -269,9 +278,8 @@ img {
 .site-link {
   position: relative;
   left: 10px;
-  width: auto;
-  height: auto;
-  z-index: 10;
+display: flex;
+align-items: center;
 }
 
 @keyframes fadeInUp {
@@ -321,7 +329,7 @@ img {
 }
 
 h2 {
-  color: #835106;
+  color: #ffffff;
 }
 
 .comic-caption{
