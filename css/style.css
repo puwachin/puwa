@@ -9,7 +9,7 @@ body {
 .content-box {
   background: rgb(255, 255, 255);
   border: 4px dotted #f5a623;
-  max-width: 500px;
+  max-width: 400px;
   margin: 30px auto;
   padding: 20px;
   border-radius: 16px;
@@ -199,7 +199,7 @@ img {
 .lightbox {
   display: none;
   position: fixed;
-  top: 0; left: -20px;
+  top: 0; left: 0%;
   width: 100vw; height: 100vh;
   background: rgba(0, 0, 0, 0.262);
   z-index: 9999;
@@ -216,7 +216,7 @@ img {
   gap: 20px;
 }
 .lightbox-content img {
-  width: 100%;
+  width: 90%;
   border-radius: 12px;
   box-shadow: 0 0 12px rgba(0,0,0,0.3);
 }
