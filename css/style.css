@@ -3,9 +3,7 @@ body {
   margin: 0;
   padding: 0;
   font-family: 'Zen Maru Gothic', sans-serif;
-  background: #f5c959 url("images/haikei.png") no-repeat center top;
-  background-size: contain;
-  text-align: center;
+  background: #fffce9
 }
 .wrapper {
   max-width: 600px;
@@ -211,11 +209,10 @@ header img.site-logo {
 
 .main-nav {
   display: flex;
-  flex-wrap: nowrap;         /* 折り返さない */
+  flex-wrap: nowrap;         
   justify-content: center;
-  align-items: center;       /* 上下揃える */
-  gap: 12px;
-  overflow-x: auto;          /* はみ出しても横スクロール */
+  align-items: center;       
+  overflow-x: auto;          
   white-space: nowrap;
   height: 60px;
   -ms-overflow-style: none;
