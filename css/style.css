@@ -9,7 +9,7 @@ body {
 .content-box {
   background: rgb(255, 255, 255);
   border: 4px dotted #f5a623;
-  max-width: 400px;
+  max-width: 300px;
   margin: 30px auto;
   padding: 20px;
   border-radius: 16px;
