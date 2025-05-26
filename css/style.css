@@ -268,7 +268,7 @@ img {
 
 .site-link {
   position: relative;
-  left: auto;
+  left: 10px;
   width: auto;
   height: auto;
   z-index: 10;
