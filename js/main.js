@@ -1,4 +1,5 @@
 
+
 function openSeries(images) {
   const container = document.getElementById("lightbox-content");
   container.innerHTML = '';
@@ -32,12 +33,22 @@ function openSeries(images) {
 }
 
 document.querySelectorAll('.chara').forEach(character => {
+  // 初期表示で確実にフェードインするように
+  character.classList.add('animated');
+
+  character.addEventListener('animationend', (e) => {
+    if (e.animationName === 'fadeInUp') {
+      character.classList.add('animated');
+    }
+  });
+
   character.addEventListener('click', () => {
     character.classList.remove('jump');
     void character.offsetWidth;
     character.classList.add('jump');
   });
 });
+
 
 const style = document.createElement('style');
 style.innerHTML = `
