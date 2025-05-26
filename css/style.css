@@ -1,154 +1,11 @@
+
 body {
   margin: 0;
   padding: 0;
   font-family: 'Zen Maru Gothic', sans-serif;
-  background: #f5c959;
-  overflow-x: hidden;
-}
-.wrapper {
-  position: relative;
-  width: 100%;
-  min-height: 100vh;
-  text-align: center;
-}
-.chara-wrapper {
-  position: relative;   /* ここが土台！ */
-  width: 100%;
-  max-width: 500px;
-  margin: 0 auto;
-}
-.bg {
-  width: 100%;
-  height: auto;
-  position: relative; /* または absolute にして下に貼りつけてもOK */
-  z-index: 0;
-}
-.bg-image {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  z-index: 0;
-}
-.logo {
-  position: absolute;
-  top: 20px;
-  left: 20px;
-  width: 100px;
-  z-index: 10;
-}
-.komaeda {
-  position: absolute;
-  top: 30%;
-  left: 10%;
-  bottom: 0;
-  width: 250px;
-  animation-delay: 0.2s;
-}
-
-.hinata {
-  position: absolute;
-  top: 30%;
-  right: 10%;
-  bottom: 0;
-  width: 200px;
-  animation-delay: 0.5s;
-}
-
-.kanban {
-  position: absolute;
-  top: 10%;
-  left: 20%;
-  width: 300px;
-  animation-delay: 0.8s;
-}
-.jump {
-  animation-name: jump;
-  animation-duration: 0.4s;
-  animation-fill-mode: none;  /* ←ここ重要！ */
-}
-.nav-buttons {
-  position: relative;  /* ← absoluteをrelativeに */
-  margin-top: 40px;    /* キャラ画像の下に余白 */
-  display: flex;
-  justify-content: center;
-  gap: 20px;
-  z-index: 5;
-}
-.nav-buttons a {
-  background: #fff;
-  padding: 10px 15px;
-  border-radius: 10px;
-  text-decoration: none;
-  color: #333;
-  font-weight: bold;
-}
-.notice {
-  position: relative;
-  margin: 40px auto 60px;  /* 下にも余白を追加 */
-  text-align: center;
-}
-.notice-text {
-  font-size: 1.2em;
-  color: #2b2b2b;
-}
-.chara {
-  opacity: 0;
-  transform: translateY(0);  /* ←最初から0 */
-  transition: opacity 0.8s ease, transform 0.3s ease;
-  cursor: pointer;
-}
-
-.chara.animated {
-  opacity: 1;
-}
-
-.chara.jump {
-  animation: jump 0.4s ease;
-}
-
-@keyframes jump {
-  0%   { transform: translateY(0); }
-  30%  { transform: translateY(-20px); }
-  60%  { transform: translateY(0); }
-  100% { transform: translateY(0); }
-}
-.notice-text {
-  font-size: 1.2em;
-  color: #2b2b2b;
-}
-
-.update-info {
-  position: absolute;
-  bottom: 5%;
-  left: 50%;
-  transform: translateX(-50%);
-  background-color: rgba(0, 0, 0, 0.3);
-  color: rgb(55, 36, 1);
-  padding: 5px 10px;
-  border-radius: 5px;
-  font-size: 0.9rem;
-  z-index: 5;
-}
-
-.nav-buttons a:hover {
-  transform: scale(1.05);
-}
-.notice {
-  position: relative;
-  margin-top: 30px;
-}
-
-.notice-text {
-  position: absolute;
-  top: 35%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  font-size: 1.2em;
-  color: #2b2b2b;
-  white-space: nowrap;
+  font-size: 16px;
+  background: #fffef6;
+  line-height: 1.6;
 }
 
 img {
@@ -172,7 +29,7 @@ img {
 }
 .comic-card {
   background: #fff;
-  border: 4px dotted #4cc407;
+  border: 4px dotted #62b840;
   border-radius: 16px;
   padding: 10px;
   width: 200px;
@@ -189,7 +46,7 @@ img {
 .comic-caption {
   margin-top: 8px;
   font-weight: bold;
-  color: #4cc407;
+  color: #79cf28;
 }
 .lightbox {
   display: none;
@@ -215,6 +72,46 @@ img {
   border-radius: 12px;
   box-shadow: 0 0 12px rgba(0,0,0,0.3);
 }
+header {
+      background: linear-gradient(to right, #ffffff, #ffffff);
+      padding: 20px;
+      border-radius: 20px;
+      box-shadow: 0 4px 12px rgba(69, 151, 15, 0.555);
+      margin-bottom: 30px;
+      text-align: center;
+    }
+
+header img.header-bg,
+header img.header-chara,
+header img.site-logo {
+  border-radius: 0 !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+
+    header h1 {
+      margin: 10px 0 0;
+      font-size: 2.5em;
+      color: #2b7e0a;
+    }
+
+    nav {
+      margin-top: 16px;
+    }
+
+    nav a {
+      display: inline-block;
+      margin: 6px 10px;
+      padding: 8px 16px;
+      background: #bbf174;
+      color: #3c5f04;
+      font-weight: bold;
+      border-radius: 12px;
+      text-decoration: none;
+      transition: 0.2s;
+    }
+
+    
 
 .hero-img {
   width: 100%;
@@ -227,31 +124,29 @@ img {
 
 .main-nav {
   display: flex;
-  flex-wrap: nowrap;         
+  flex-wrap: nowrap;
   justify-content: center;
-  align-items: center;       
-  overflow-x: auto;          
+  align-items: center;
+  gap: 20px;
+  overflow-x: auto;
   white-space: nowrap;
-  height: 60px;
-  -ms-overflow-style: none;
-  scrollbar-width: none;
-}
-
-.main-nav::-webkit-scrollbar {
-  display: none;
+  height: 100;
+  padding: 30px 10px;
+  transform: translateX(-50%);
+  z-index: 10;
 }
 
 .main-nav a {
+  display: inline-block;
+  font-size: 1.4em;
   flex-shrink: 0;
-  font-size: 1em;
-  padding: 10px 18px;
+  padding: 12px 24px;
+  border-radius: 20px;
   line-height: 1;
   display: flex;
-  align-items: center;
   height: 100%;
   background: #ffeec4;
   color: #5c3c1a;
-  border-radius: 20px;
   text-decoration: none;
   font-weight: bold;
   box-shadow: 0 4px 8px rgba(0,0,0,0.1);
@@ -259,9 +154,36 @@ img {
 }
 
 .main-nav a:hover {
-  background: #edd9b5;
+  background: #ffd17e;
   transform: scale(1.05);
 }
+.header-chara-wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  pointer-events: none; 
+  z-index: 0;
+}
+
+.header-bg {
+  width: 100%;
+  display: block;
+  position: relative;     /* ←追加 */
+  z-index: 0;              /* ←追加して背景を一番下に */
+}
+
+.header-chara {
+  pointer-events: auto;
+  opacity: 0;
+  animation: fadeInUp 1.2s ease-out 0.4s forwards;
+  transform: none; 
+  transition: transform 0.2s ease;
+  cursor: pointer;
+  position: relative;
+  z-index: 0;
+}
+
 
 .site-logo {
   position: absolute;
@@ -306,7 +228,7 @@ img {
 }
 
   .comic-card {
-    width: 50%;
+    width: 90%;
   }
 
   .home-button {
@@ -319,11 +241,9 @@ img {
 }
 
 h2 {
-  color: #835106;
+  color: #e67e22;
 }
 
 .comic-caption{
   text-align: center;
 }
-
-
