@@ -264,7 +264,7 @@ img {
 }
 
 .main-nav a:hover {
-  background: #edd9b5;
+  background: #ffeec4;
   transform: scale(1.05);
 }
 
@@ -299,7 +299,7 @@ align-items: center;
 
 .home-button {
   display: inline-block;
-  background: #ffdd99;
+  background: #ffeec4;
   color: #5c3c1a;
   font-size: 1.2em;
   font-weight: bold;
@@ -311,7 +311,7 @@ align-items: center;
 }
 
 .home-button:hover {
-  background: #ffc066;
+  background: #ffeec4;
   transform: scale(1.05);
 }
 
