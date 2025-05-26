@@ -39,7 +39,7 @@ body {
   top: 30%;
   left: 10%;
   bottom: 0;
-  width: 250px;
+  width: 200px;
   animation-delay: 0.2s;
 }
 
@@ -48,14 +48,14 @@ body {
   top: 30%;
   right: 10%;
   bottom: 0;
-  width: 200px;
+  width: 160px;
   animation-delay: 0.5s;
 }
 
 .kanban {
   position: absolute;
   top: 10%;
-  left: 20%;
+  left: 10%;
   width: 300px;
   animation-delay: 0.8s;
 }
@@ -159,18 +159,19 @@ img {
 }
 
 .comic-list {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* ← 2列対応 */
   gap: 20px;
-  padding: 20px;
+  padding: 8px;
+  justify-content: center;
 }
 .comic-card {
+  width: 100%;
+  margin: 0 auto;
   background: #fff;
-  border: 4px dotted #4cc407;
+  border: 4px dotted #62b840;
   border-radius: 16px;
   padding: 10px;
-  width: 800px;
 }
 .thumbnail {
   width: 100%;
@@ -199,7 +200,7 @@ img {
   padding: 40px 20px;
 }
 .lightbox-content {
-  max-width: 500px;
+  max-width: 420px;
   margin: auto;
   display: flex;
   flex-direction: column;
@@ -260,15 +261,15 @@ img {
 
 .site-logo {
   position: absolute;
-  left: 210px;
+  left: 10px;
   width: 100px;
   height: auto;
 }
 
 .site-link {
   position: relative;
-  left: 210px;
-  width: 100px;
+  left: auto;
+  width: auto;
   height: auto;
   z-index: 10;
 }
