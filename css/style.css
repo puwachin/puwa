@@ -6,6 +6,17 @@ body {
   overflow-x: hidden;
 }
 
+.section-title {
+  font-size: 1em;
+  margin: 0px 0 0px;
+  color: #b85b32;
+  padding-left: 5px;
+  padding-right: 5px;
+  background: #fff6e0;
+  border-bottom: 4px dotted #ffc773;
+  display: inline-block;
+}
+
 .content-box {
   background: rgb(255, 255, 255);
   border: 4px dotted #f5a623;
@@ -174,13 +185,39 @@ img {
   padding: 8px;
   justify-content: center;
 }
+.comic-scroll {
+  display: flex;
+  overflow-x: auto;
+  gap: 16px;
+  padding: 10px 0 20px;
+  scroll-snap-type: x mandatory;
+
+  /* ▼重要ポイント ▼ */
+  width: 20vw;          /* 表示領域を画面いっぱいに広げる */
+  max-width: none;
+  padding-left: 20px;    /* 少し余白つけると良い感じ */
+  padding-right: 20px;
+}
+
 .comic-card {
-  width: 100%;
-  margin: 0 auto;
-  background: #fff;
+  flex: 0 0 auto; /* 横幅固定 */
+  width: 160px;
+  height: 220px;
+  overflow: hidden;
   border: 4px dotted #f5a623;
-  border-radius: 16px;
+  border-radius: 12px;
+  background: white;
   padding: 10px;
+  scroll-snap-align: start;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  transition: transform 0.2s;
+}
+.comic-card:hover {
+  transform: scale(1.03);
+}
+
+.comic-scroll::-webkit-scrollbar {
+  display: none; /* スクロールバー非表示（スマホで快適） */
 }
 .thumbnail {
   width: 100%;
