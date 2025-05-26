@@ -172,7 +172,7 @@ img {
 }
 .comic-card {
   background: #fff;
-  border: 4px dotted #62b840;
+  border: 4px dotted #4cc407;
   border-radius: 16px;
   padding: 10px;
   width: 200px;
@@ -189,7 +189,7 @@ img {
 .comic-caption {
   margin-top: 8px;
   font-weight: bold;
-  color: #79cf28;
+  color: #4cc407;
 }
 .lightbox {
   display: none;
@@ -215,46 +215,6 @@ img {
   border-radius: 12px;
   box-shadow: 0 0 12px rgba(0,0,0,0.3);
 }
-header {
-      background: linear-gradient(to right, #ffffff, #ffffff);
-      padding: 20px;
-      border-radius: 20px;
-      box-shadow: 0 4px 12px rgba(69, 151, 15, 0.555);
-      margin-bottom: 30px;
-      text-align: center;
-    }
-
-header img.header-bg,
-header img.header-chara,
-header img.site-logo {
-  border-radius: 0 !important;
-  border: none !important;
-  box-shadow: none !important;
-}
-
-    header h1 {
-      margin: 10px 0 0;
-      font-size: 2.5em;
-      color: #2b7e0a;
-    }
-
-    nav {
-      margin-top: 16px;
-    }
-
-    nav a {
-      display: inline-block;
-      margin: 6px 10px;
-      padding: 8px 16px;
-      background: #bbf174;
-      color: #3c5f04;
-      font-weight: bold;
-      border-radius: 12px;
-      text-decoration: none;
-      transition: 0.2s;
-    }
-
-    
 
 .hero-img {
   width: 100%;
@@ -299,7 +259,7 @@ header img.site-logo {
 }
 
 .main-nav a:hover {
-  background: #ffd17e;
+  background: #edd9b5;
   transform: scale(1.05);
 }
 
@@ -346,7 +306,7 @@ header img.site-logo {
 }
 
   .comic-card {
-    width: 90%;
+    width: 50%;
   }
 
   .home-button {
@@ -359,7 +319,7 @@ header img.site-logo {
 }
 
 h2 {
-  color: #e67e22;
+  color: #835106;
 }
 
 .comic-caption{
