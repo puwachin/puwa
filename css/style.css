@@ -5,16 +5,22 @@ body {
   background: #f5c959;
   overflow-x: hidden;
 }
-
+.comic-section {
+  margin: 40px auto;
+  padding: 16px;
+  max-width: 1000px;
+  background: #fff;
+  border: 4px dotted #f6a742;
+  border-radius: 16px;
+}
 .section-title {
-  font-size: 1em;
-  margin: 0px 0 0px;
-  color: #b85b32;
-  padding-left: 5px;
-  padding-right: 5px;
-  background: #fff6e0;
-  border-bottom: 4px dotted #ffc773;
+  margin-bottom: 12px;
+  font-size: 1.2em;
+  color: #a35c00;
+  border-bottom: 2px dotted #f6a742;
   display: inline-block;
+  padding: 2px 8px;
+  background: #ffffff;
 }
 
 .content-box {
@@ -177,41 +183,33 @@ img {
   max-width: 1000px;
   margin: 0 auto;
 }
-
-.comic-list {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr); /* ← 2列対応 */
-  gap: 20px;
-  padding: 8px;
-  justify-content: center;
-}
 .comic-scroll {
   display: flex;
+  flex-direction: row;
   overflow-x: auto;
   gap: 16px;
-  padding: 10px 0 20px;
   scroll-snap-type: x mandatory;
-
-  /* ▼重要ポイント ▼ */
-  width: 20vw;          /* 表示領域を画面いっぱいに広げる */
-  max-width: none;
-  padding-left: 20px;    /* 少し余白つけると良い感じ */
-  padding-right: 20px;
+  padding: 8px 0;
 }
 
 .comic-card {
-  flex: 0 0 auto; /* 横幅固定 */
-  width: 160px;
+  flex: 0 0 auto;          /* 横幅を固定し、縮まないように */
+  width: 200px;
   height: 220px;
-  overflow: hidden;
-  border: 4px dotted #f5a623;
+  background: #fff;
+  border: 3px dotted #ffa500;
   border-radius: 12px;
-  background: white;
   padding: 10px;
+  overflow: hidden;
+  box-sizing: border-box;
   scroll-snap-align: start;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-  transition: transform 0.2s;
 }
+.comic-card img {
+  width: 100%;
+  height: auto;
+  object-fit: contain;  /* はみ出さず調整 */
+}
+
 .comic-card:hover {
   transform: scale(1.03);
 }
@@ -229,9 +227,10 @@ img {
   transform: scale(1.05);
 }
 .comic-caption {
-  margin-top: 10px;
+  text-align: center;
   font-weight: bold;
-  color: #f5a623;
+  color: #e67e22;
+  margin-bottom: 8px;
 }
 .lightbox {
   display: none;
