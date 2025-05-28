@@ -4,7 +4,8 @@ body {
   font-family: 'Zen Maru Gothic', sans-serif;
   background: #f5c959;
   overflow-x: hidden;
-  
+}
+
 .image-row {
   display: flex;
   flex-wrap: wrap;
@@ -15,7 +16,11 @@ body {
   height: auto;
 }
 
+.center-img {
+  display: block;
+  margin: 0 auto;
 }
+
 .comic-section {
   margin: 40px auto;
   padding: 16px;
@@ -382,5 +387,3 @@ h2 {
 .comic-caption{
   text-align: center;
 }
-
-
