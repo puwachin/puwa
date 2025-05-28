@@ -15,8 +15,8 @@ h1, h2 {
   margin: 30px auto;
 }
 .notice-box h2 {
-  font-size: 1em;
-  color: #cd7b00;  /* 赤オレンジ */
+  font-size: 1.3em;
+  color: #cd7b00;
   font-weight: bold;
   text-align: center;
   margin-bottom: 20px;
@@ -130,6 +130,8 @@ h1, h2 {
   justify-content: center;
   gap: 20px;
   z-index: 5;
+  font-family: 'Zen Maru Gothic', cursive;
+  font-weight: bold;
 }
 .nav-buttons a {
   background: #ffffff;
@@ -261,9 +263,10 @@ img {
 }
 .comic-caption {
   text-align: center;
-  font-weight: bold;
   color: #e67e22;
   margin-bottom: 8px;
+  font-family: 'Zen Maru Gothic', cursive;
+  font-weight: bold;
 }
 .lightbox {
   display: none;
@@ -377,6 +380,8 @@ align-items: center;
   text-decoration: none;
   box-shadow: 0 4px 10px rgba(0,0,0,0.1);
   transition: all 0.2s;
+  font-family: 'Zen Maru Gothic', cursive;
+  font-weight: bold;
 }
 
 .home-button:hover {
@@ -402,6 +407,3 @@ h1 {
   font-weight: bold;
 }
 
-.comic-caption{
-  text-align: center;
-}
