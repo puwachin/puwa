@@ -1,13 +1,31 @@
 body {
-  margin: 0;
-  padding: 0;
-  font-family: 'Noto Sans JP', sans-serif;
-  background: #f5c959;
-  overflow-x: hidden;
+  font-family: 'M PLUS Rounded 1c', sans-serif;
+  background-color: #fcd74c; /* 明るめの黄色（オレンジ寄り） */
+  color: #333;
+  line-height: 1.7;
 }
-
 h1, h2 {
   font-family: 'Zen Maru Gothic', cursive;
+}
+.notice-box {
+  background: white;
+  padding: 20px;
+  border-radius: 16px;
+  max-width: 300px;
+  margin: 30px auto;
+}
+.notice-box h2 {
+  font-size: 1em;
+  color: #cd7b00;  /* 赤オレンジ */
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 20px;
+}
+.notice-box ul {
+  padding-left: 1.5em;
+}
+.notice-box li {
+  margin-bottom: 10px;
 }
 
 .image-row {
@@ -379,8 +397,9 @@ align-items: center;
   text-align: center;
 }
 
-h2 {
-  color: #ffffff;
+h1 {
+  color: white;
+  font-weight: bold;
 }
 
 .comic-caption{
