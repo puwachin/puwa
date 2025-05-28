@@ -4,6 +4,17 @@ body {
   font-family: 'Zen Maru Gothic', sans-serif;
   background: #f5c959;
   overflow-x: hidden;
+  
+.image-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+.image-row img {
+  max-width: 200px;
+  height: auto;
+}
+
 }
 .comic-section {
   margin: 40px auto;
