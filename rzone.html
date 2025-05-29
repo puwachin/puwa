@@ -1,36 +1,80 @@
+<!-- HTML: rakugaki.html 完全自動版 -->
 <!DOCTYPE html>
 <html lang="ja">
 <head>
   <meta charset="UTF-8">
-  <title>漫画 - ぷわぷわらんど</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="robots" content="noindex, noarchive, nofollow, noimageindex">
-  <link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic&family=Yusei+Magic&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/rcss.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>らくがきギャラリー</title>
+  <link rel="stylesheet" href="css/rss.css">
+  <script src="main.js" defer></script>
 </head>
 <body>
-    <a href="main.html"><img src="pic/logo.png" alt="ロゴ" class="site-logo"></a>
-    <h1 class="text-center">えっちな絵</h1>
+  <div class="wrapper">
+    <h1 class="main-title">えっちな絵</h1>
 
-  <div class="notice-box">
-  <h2 class="section-title">らくがき</h2>
-    <!-- らくがきのカード -->
-    <div class="comic-scroll">
-    <div class="comic-card"><div class="comic-caption">狛日</div><img src="images/r_rakugaki/IMG_7667.jpeg" class="thumbnail" onclick="openSeries(['images/r_rakugaki/IMG_7667.jpeg','images/r_rakugaki/IMG_7668.jpeg','images/r_rakugaki/IMG_7669.jpeg','images/r_rakugaki/IMG_7670.jpeg','images/r_rakugaki/IMG_7671.jpeg','images/r_rakugaki/IMG_7672.jpeg','images/r_rakugaki/IMG_7673.jpeg','images/r_rakugaki/IMG_7706.jpeg'])"></div>
-    <div class="comic-card"><div class="comic-caption">特殊な狛日</div><img src="images/r_rakugaki/IMG_7674.jpeg" class="thumbnail" onclick="openSeries(['images/r_rakugaki/IMG_7674.jpeg','images/r_rakugaki/IMG_7675.jpeg','images/r_rakugaki/IMG_7681.jpeg','images/r_rakugaki/IMG_7695.jpeg','images/r_rakugaki/IMG_7696.jpeg','images/r_rakugaki/IMG_7698.jpeg',])"></div>
-    <div class="comic-card"><div class="comic-caption">ゾロイブ狛日</div><img src="images/r_rakugaki/IMG_7693.jpeg" class="thumbnail" onclick="openSeries(['images/r_rakugaki/IMG_7693.jpeg','images/r_rakugaki/IMG_7700.jpeg','images/r_rakugaki/IMG_7701.jpeg','images/r_rakugaki/IMG_7702.jpeg','images/r_rakugaki/IMG_7703.jpeg',])"></div>
-    <div class="comic-card"><div class="comic-caption">モブ狛</div><img src="images/r_rakugaki/IMG_7676.jpeg" class="thumbnail" onclick="openSeries(['images/r_rakugaki/IMG_7676.jpeg','images/r_rakugaki/IMG_7677.jpeg','images/r_rakugaki/IMG_7678.jpeg','images/r_rakugaki/IMG_7679.jpeg','images/r_rakugaki/IMG_7682.jpeg',])"></div>
-</div>
+    <div id="gallery-container"></div>
   </div>
-  </section>
 
-</main>
-  <footer class="back-home">
-    <a href="main.html" class="home-button">🏠 ホームに戻る</a>
-  </footer>
-  <div class="lightbox" id="lightbox" onclick="closeLightbox()">
-    <div class="lightbox-content" id="lightbox-content"></div>
+  <!-- モーダル -->
+  <div id="modal" class="modal" onclick="closeModal(event)">
+    <div class="modal-content" id="modalContent"></div>
   </div>
-  <script src="js/main.js"></script>
+
+  <script>
+    const GAS_ENDPOINT = "https://script.google.com/macros/s/AKfycbzTdF2YJpoEoo1bJL9x-en7muOaD7-OJdaeW2IJM8uhJK-zNG02TSX-kK4dnCq3d3GHqQ/exec";
+
+    fetch(GAS_ENDPOINT)
+      .then(response => response.json())
+      .then(data => {
+        const container = document.getElementById("gallery-container");
+
+        data.folders.forEach(group => {
+          const groupBox = document.createElement("div");
+          groupBox.className = "comic-group";
+
+          const title = document.createElement("div");
+          title.className = "comic-caption";
+          title.textContent = group.title;
+          groupBox.appendChild(title);
+
+          const scrollBox = document.createElement("div");
+          scrollBox.className = "comic-scroll";
+
+          const thumb = document.createElement("div");
+          thumb.className = "comic-card";
+
+          const img = document.createElement("img");
+          img.className = "thumbnail";
+          img.src = group.images[0];
+          img.onclick = () => openSeries(group.images);
+
+          thumb.appendChild(img);
+          scrollBox.appendChild(thumb);
+          groupBox.appendChild(scrollBox);
+          container.appendChild(groupBox);
+        });
+      });
+
+    function openSeries(images) {
+      const modal = document.getElementById("modal");
+      const content = document.getElementById("modalContent");
+      content.innerHTML = "";
+
+      images.forEach(url => {
+        const img = document.createElement("img");
+        img.src = url;
+        img.className = "modal-image";
+        content.appendChild(img);
+      });
+
+      modal.style.display = "flex";
+    }
+
+    function closeModal(event) {
+      if (event.target.id === "modal") {
+        document.getElementById("modal").style.display = "none";
+      }
+    }
+  </script>
 </body>
 </html>
