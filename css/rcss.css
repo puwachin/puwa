@@ -1,0 +1,448 @@
+body {
+  font-family: 'M PLUS Rounded 1c', sans-serif;
+  background-color: #e78fff; 
+  color: #333;
+  line-height: 1.7;
+}
+h1, h2 {
+  font-family: 'Zen Maru Gothic', cursive;
+}
+.notice-box {
+  background: white;
+  padding: 20px;
+  border-radius: 16px;
+  max-width: 300px;
+  margin: 30px auto;
+}
+.notice-box h2 {
+  font-size: 1.3em;
+  color: #cd0067;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 20px;
+}
+.notice-box ul {
+  padding-left: 1.5em;
+}
+.notice-box li {
+  margin-bottom: 10px;
+}
+
+.image-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+.image-row img {
+  max-width: 200px;
+  height: auto;
+}
+
+.comic-section {
+  margin: 40px auto;
+  padding: 16px;
+  max-width: 1000px;
+  background: #fff;
+  border: 4px dotted #e742f6;
+  border-radius: 16px;
+}
+.section-title {
+  margin-bottom: 12px;
+  font-size: 1.2em;
+  color: #a35c00;
+  border-bottom: 2px dotted #e742f6;
+  display: inline-block;
+  padding: 2px 8px;
+  background: #ffffff;
+}
+
+.content-box {
+  background: rgb(255, 255, 255);
+  border: 4px dotted #e742f6;
+  max-width: 300px;
+  margin: 30px auto;
+  padding: 20px;
+  border-radius: 16px;
+}
+.wrapper {
+  width: 100%;
+  max-width: 1000px;
+  margin: 0 auto;
+  position: relative;
+  overflow: hidden;
+}
+.chara-wrapper {
+  position: relative;   /* ここが土台！ */
+  width: 100%;
+  max-width: 500px;
+  margin: 0 auto;
+}
+.bg {
+  width: 100%;
+  height: auto;
+  position: relative; /* または absolute にして下に貼りつけてもOK */
+  z-index: 0;
+}
+.bg-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
+}
+
+.komaeda {
+  position: absolute;
+  top: 40%;
+  left: 10%;
+  bottom: 0;
+  width: 200px;
+  animation-delay: 0.2s;
+}
+
+.hinata {
+  position: absolute;
+  top: 40%;
+  right: 10%;
+  bottom: 0;
+  width: 160px;
+  animation-delay: 0.5s;
+}
+
+.kanban {
+  position: absolute;
+  top: 0%;
+  left: 10%;
+  width: 300px;
+  animation-delay: 0.8s;
+}
+.jump {
+  animation-name: jump;
+  animation-duration: 0.4s;
+  animation-fill-mode: none;  /* ←ここ重要！ */
+}
+.nav-buttons {
+  position: relative;  /* ← absoluteをrelativeに */
+  margin-top: 40px;    /* キャラ画像の下に余白 */
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  z-index: 5;
+  font-family: 'Zen Maru Gothic', cursive;
+  font-weight: bold;
+}
+.nav-buttons a {
+  background: #ffffff;
+  padding: 10px 15px;
+  border-radius: 10px;
+  text-decoration: none;
+  color: #333;
+  font-weight: bold;
+}
+.notice {
+  position: relative;
+  margin: 40px auto 60px;  /* 下にも余白を追加 */
+  text-align: center;
+}
+.notice-text {
+  font-size: 1.2em;
+  color: #2b2b2b;
+}
+.chara {
+  opacity: 0;
+  transform: translateY(0);  /* ←最初から0 */
+  transition: opacity 0.8s ease, transform 0.3s ease;
+  cursor: pointer;
+}
+
+.chara.animated {
+  opacity: 1;
+}
+
+.chara.jump {
+  animation: jump 0.4s ease;
+}
+
+@keyframes jump {
+  0%   { transform: translateY(0); }
+  30%  { transform: translateY(-20px); }
+  60%  { transform: translateY(0); }
+  100% { transform: translateY(0); }
+}
+.notice-text {
+  font-size: 1.2em;
+  color: #2b2b2b;
+}
+
+.update-info {
+  position: absolute;
+  bottom: 5%;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: rgba(0, 0, 0, 0.3);
+  color: rgb(55, 36, 1);
+  padding: 5px 10px;
+  border-radius: 5px;
+  font-size: 0.9rem;
+  z-index: 5;
+}
+
+.nav-buttons a:hover {
+  transform: scale(1.05);
+}
+.notice {
+  position: relative;
+  margin-top: 30px;
+}
+
+.notice-text {
+  position: absolute;
+  top: 35%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 1.2em;
+  color: #2b2b2b;
+  white-space: nowrap;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+.container {
+  width: 90%;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+.comic-scroll {
+  display: flex;
+  flex-direction: row;
+  overflow-x: auto;
+  gap: 16px;
+  scroll-snap-type: x mandatory;
+  padding: 8px 0;
+}
+
+.comic-card {
+  flex: 0 0 auto;          /* 横幅を固定し、縮まないように */
+  width: 200px;
+  height: 220px;
+  background: #fff;
+  border: 3px dotted #e742f6;
+  border-radius: 12px;
+  padding: 10px;
+  overflow: hidden;
+  box-sizing: border-box;
+  scroll-snap-align: start;
+}
+.comic-card img {
+  width: 100%;
+  height: auto;
+  object-fit: contain;  /* はみ出さず調整 */
+}
+
+.comic-card:hover {
+  transform: scale(1.03);
+}
+
+.comic-scroll::-webkit-scrollbar {
+  display: none; /* スクロールバー非表示（スマホで快適） */
+}
+.thumbnail {
+  width: 100%;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+.thumbnail:hover {
+  transform: scale(1.05);
+}
+.comic-caption {
+  text-align: center;
+  color: #b822e6;
+  margin-bottom: 8px;
+  font-family: 'Zen Maru Gothic', cursive;
+  font-weight: bold;
+}
+.lightbox {
+  display: none;
+  position: fixed;
+  top: 0; left: 0%;
+  width: 100vw; height: 100vh;
+  background: rgba(0, 0, 0, 0.262);
+  z-index: 9999;
+  justify-content: center;
+  align-items: center;
+  overflow-y: auto;
+  padding: 40px 20px;
+}
+.lightbox-content {
+  max-width: 420px;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.lightbox-content img {
+  width: 90%;
+  border-radius: 12px;
+  box-shadow: 0 0 12px rgba(0,0,0,0.3);
+}
+
+.hero-img {
+  width: 100%;
+  max-width: 1000px;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+  padding-top: 20px;
+}
+
+.main-nav {
+  display: flex;
+  flex-wrap: nowrap;         
+  justify-content: center;
+  align-items: center;       
+  overflow-x: auto;          
+  white-space: nowrap;
+  height: 60px;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.main-nav::-webkit-scrollbar {
+  display: none;
+}
+
+.main-nav a {
+  flex-shrink: 0;
+  font-size: 1em;
+  padding: 10px 18px;
+  line-height: 1;
+  display: flex;
+  align-items: center;
+  height: 100%;
+  background: #ffffff;
+  color: #5c3c1a;
+  border-radius: 20px;
+  text-decoration: none;
+  font-weight: bold;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  transition: all 0.2s ease;
+}
+
+.main-nav a:hover {
+  background: #ffffff;
+  transform: scale(1.05);
+}
+
+.site-logo {
+  position: absolute;
+  left: 10px;
+  width: 100px;
+  height: auto;
+}
+
+.site-link {
+  position: relative;
+  left: 10px;
+display: flex;
+align-items: center;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.back-home {
+  text-align: center;
+  margin: 60px 0 40px;
+}
+
+.home-button {
+  display: inline-block;
+  background: #ffffff;
+  color: #5c3c1a;
+  font-size: 1.2em;
+  font-weight: bold;
+  padding: 14px 28px;
+  border-radius: 30px;
+  text-decoration: none;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  transition: all 0.2s;
+  font-family: 'Zen Maru Gothic', cursive;
+  font-weight: bold;
+}
+
+.home-button:hover {
+  background: #ffffff;
+  transform: scale(1.05);
+}
+
+  .comic-card {
+    width: 50%;
+  }
+
+  .home-button {
+    font-size: 1em;
+    padding: 12px 20px;
+  }
+
+.text-center {
+  text-align: center;
+}
+
+h1 {
+  color: white;
+  font-weight: bold;
+}
+
+.info-box {
+  width: 90%;
+  max-width: 300px;
+  background: #ffffff;
+  overflow: hidden;
+  padding-top: 10px; /* おしらせの見出し分のスペース */
+  position: relative;
+  padding: 20px;
+  border-radius: 16px;
+  margin: 30px auto;
+  font-size: 13px;
+}
+
+.info-header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: #ffffff; /* 見出し背景 */
+  padding: 0;
+  font-weight: bold;
+  font-size: 1.1rem;
+  text-align: center;
+  z-index: 10;
+  color: #e67e22;
+  height: 70px;
+line-height: 40px;
+}
+
+.info-body {
+  max-height: 150px; /* スクロール領域の高さ */
+  overflow-y: scroll; /* ← ここはscrollのまま */
+  padding: 10px;
+  scrollbar-width: none; /* Firefox用 */
+}
+
+.info-body::-webkit-scrollbar {
+  display: none; /* Chrome/Safari用 */
+}
