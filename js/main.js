@@ -99,10 +99,9 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 });
 
-const img = document.createElement("img");
-img.src = image.url;
-img.alt = image.title || "";
-img.dataset.title = image.title || ""; // ここがタイトルの肝！
+const image = document.createElement('img');
+image.src = imgUrl;
+image.className = 'thumbnail';
 
 const card = document.createElement("div");
 card.className = "card";
