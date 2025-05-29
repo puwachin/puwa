@@ -62,3 +62,49 @@ style.innerHTML = `
   animation: jump 0.4s ease;
 }`;
 document.head.appendChild(style);
+
+// Lightbox機能
+document.addEventListener("DOMContentLoaded", function () {
+  const viewer = document.createElement("div");
+  viewer.id = "lightbox-viewer";
+  viewer.innerHTML = `<div class="lightbox-overlay"></div><div class="lightbox-content"><img><p class="lightbox-title"></p><button class="lightbox-close">×</button></div>`;
+  document.body.appendChild(viewer);
+
+  const overlay = viewer.querySelector(".lightbox-overlay");
+  const img = viewer.querySelector("img");
+  const title = viewer.querySelector(".lightbox-title");
+  const close = viewer.querySelector(".lightbox-close");
+
+  function openLightbox(src, caption) {
+    img.src = src;
+    title.textContent = caption || "";
+    viewer.classList.add("open");
+    document.body.style.overflow = "hidden";
+  }
+
+  function closeLightbox() {
+    viewer.classList.remove("open");
+    document.body.style.overflow = "";
+  }
+
+  overlay.addEventListener("click", closeLightbox);
+  close.addEventListener("click", closeLightbox);
+
+  document.querySelectorAll(".card img").forEach((image) => {
+    image.addEventListener("click", function () {
+      const src = this.src;
+      const caption = this.dataset.title || this.alt;
+      openLightbox(src, caption);
+    });
+  });
+});
+
+const img = document.createElement("img");
+img.src = image.url;
+img.alt = image.title || "";
+img.dataset.title = image.title || ""; // ここがタイトルの肝！
+
+const card = document.createElement("div");
+card.className = "card";
+card.appendChild(img);
+container.appendChild(card);
