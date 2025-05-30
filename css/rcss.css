@@ -1,6 +1,6 @@
 body {
   font-family: 'M PLUS Rounded 1c', sans-serif;
-  background-color: #e78fff; 
+  background-color: #e78fff; /* 明るめの黄色（オレンジ寄り） */
   color: #333;
   line-height: 1.7;
 }
@@ -16,7 +16,7 @@ h1, h2 {
 }
 .notice-box h2 {
   font-size: 1.3em;
-  color: #cd0067;
+  color: #e742f6;
   font-weight: bold;
   text-align: center;
   margin-bottom: 20px;
@@ -264,7 +264,7 @@ img {
 }
 .comic-caption {
   text-align: center;
-  color: #b822e6;
+  color: #aa23b6;
   margin-bottom: 8px;
   font-family: 'Zen Maru Gothic', cursive;
   font-weight: bold;
@@ -432,7 +432,7 @@ h1 {
   font-size: 1.1rem;
   text-align: center;
   z-index: 10;
-  color: #e67e22;
+  color: #e742f6;
   height: 70px;
 line-height: 40px;
 }
@@ -449,72 +449,6 @@ line-height: 40px;
 }
 
 /* ==== Lightbox Viewer ==== */
-#lightbox-viewer {
-  display: none;
-  position: fixed;
-  z-index: 9999;
-  top: 0; left: 0; right: 0; bottom: 0;
-}
-#lightbox-viewer.open {
-  display: block;
-}
-.lightbox-overlay {
-  background: rgba(0, 0, 0, 0.8);
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  top: 0;
-  left: 0;
-  z-index: 1; /* 背面に配置 */
-  pointer-events: auto; /* クリック・タップ可能にする！ */
-}
-.lightbox-content {
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  max-width: 90vw;
-  max-height: 90vh;
-  text-align: center;
-  position: relative;
-  z-index: 2; /* 前面に配置 */
-}
-.lightbox-content img {
-  max-width: 100%;
-  max-height: 80vh;
-  border-radius: 12px;
-}
-.lightbox-title {
-  color: #fff;
-  margin-top: 0.5em;
-  font-size: 1.2em;
-}
-.lightbox-close {
-  position: absolute;
-  top: 5px;
-  right: 15px;
-  font-size: 1.5em;
-  background: transparent;
-  color: white;
-  border: none;
-  cursor: pointer;
-}
-
-.lightbox-viewer {
-  display: none;
-  position: fixed;
-  top: 0; left: 0;
-  width: 100%; height: 100%;
-  background: rgba(0, 0, 0, 0.85);
-  z-index: 9999;
-  justify-content: center;
-  align-items: center;
-  overflow-y: auto;
-  padding: 2rem;
-}
-
-/* Lightbox 関連 */
-
-/* ==== Lightbox Viewer ==== */
 /* Lightbox 全体 */
 .lightbox-viewer {
   position: fixed;
@@ -524,6 +458,7 @@ line-height: 40px;
   height: 100%;
   background: rgba(0, 0, 0, 0.8);
   z-index: 9999;
+  overflow-y: auto;
   display: none;
   justify-content: center;
   align-items: center;
@@ -535,22 +470,24 @@ line-height: 40px;
 }
 
 /* スクロール可能な内容領域 */
+/* Lightbox内の画像表示領域 */
 .lightbox-content {
   max-height: 80vh;
   overflow-y: auto;
-  background: white;
-  padding: 1em;
-  border-radius: 10px;
-  width: 90%;
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+  padding: 5vh 2vw 10vh 2vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2vh;
+  box-sizing: border-box;
+  overscroll-behavior: contain;
 }
 
-/* 表示する画像 */
+/* 画像サイズを統一して可読性を保つ */
 .lightbox-content img {
   max-width: 100%;
   height: auto;
-  display: block;
-  margin: 0 auto 1em auto;
+  border-radius: 10px;
 }
 
 /* タイトル */
@@ -585,4 +522,30 @@ line-height: 40px;
   max-width: 100%;
   height: auto;
   border-radius: 4px;
+}
+
+.lightbox-viewer.open {
+  overflow-y: hidden; /* モーダル表示中に背景のスクロールバーを隠す */
+}
+
+.lightbox-content {
+  max-height: 100vh;
+  overflow-y: auto;
+  -ms-overflow-style: none;  /* IE / Edge */
+  scrollbar-width: none;     /* Firefox */
+}
+
+.lightbox-content::-webkit-scrollbar {
+  display: none;             /* Chrome, Safari */
+}
+
+.lightbox-content::after {
+  content: "";
+  display: block;
+  height: 100vh; /* ここを調整すればスクロールの終点が伸びます */
+}
+
+.thumbnail {
+  border: none;
+  outline: none;
 }

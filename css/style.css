@@ -542,7 +542,7 @@ line-height: 40px;
 .lightbox-content::after {
   content: "";
   display: block;
-  height: 50vh; /* ここを調整すればスクロールの終点が伸びます */
+  height: 100vh; /* ここを調整すればスクロールの終点が伸びます */
 }
 
 .thumbnail {

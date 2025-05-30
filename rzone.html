@@ -3,78 +3,119 @@
 <html lang="ja">
 <head>
   <meta charset="UTF-8">
+  <meta name="robots" content="noindex, noarchive, nofollow, noimageindex">
+  <link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic&family=Yusei+Magic&display=swap" rel="stylesheet">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>らくがきギャラリー</title>
-  <link rel="stylesheet" href="css/rss.css">
-  <script src="main.js" defer></script>
+  <title>らくがき</title>
+  <link rel="stylesheet" href="css/rcss.css">
+  <script src="js/main.js" defer></script>
 </head>
 <body>
   <div class="wrapper">
-    <h1 class="main-title">えっちな絵</h1>
+    <a href="main.html"><img src="pic/logo.png" alt="ロゴ" class="site-logo"></a>
+    <h1 class="text-center">らくがき</h1>
 
-    <div id="gallery-container"></div>
+    <!-- モーダル（画像を拡大表示する領域） -->
+<div id="modal" class="modal">
+  <div class="modal-content" id="modal-images"></div>
+</div>
+
+<!-- ライトボックス -->
+<div id="lightbox-viewer" class="lightbox-viewer">
+  <div class="lightbox-overlay"></div> <!-- 背景クリックで閉じる -->
+  <div class="lightbox-content"></div>
+</div>
+
+
+    <!-- らくがき -->
+<div class="notice-box">
+  <h2 class="section-title">らくがき</h2>
+  <!-- JavaScriptがここに内容を追加します -->
+    <div id="r_rakugaki-container" class="comic-scroll"></div>
   </div>
 
-  <!-- モーダル -->
-  <div id="modal" class="modal" onclick="closeModal(event)">
-    <div class="modal-content" id="modalContent"></div>
+      <!-- まんが -->
+<div class="notice-box">
+  <h2 class="section-title">まんが</h2>
+  <!-- JavaScriptがここに内容を追加します -->
+    <div id="r_manga-container" class="comic-scroll"></div>
   </div>
+  
+</div>
+
+<footer class="back-home">
+  <a href="rakugaki.html" class="home-button">らくがきに戻る</a>
+    <a href="main.html" class="home-button">🏠 ホームに戻る</a>
+  </footer>
 
   <script>
-    const GAS_ENDPOINT = "https://script.google.com/macros/s/AKfycbxoHPHWZFd2XNqa0A4Bg8kFBVE5P1UZSt25G5ZwiVpkAP7JE8WFPhqRYQAXG0YFB4myNg/exec";
+const DEPLOY_URL = "https://script.google.com/macros/s/AKfycbzsOUF9_3-R2HEvGXoLhyAKsA9cvGEbauwwYGR6kfmASwjULIX0N9S0JgX90a3LDTDSww/exec";
 
-    fetch(GAS_ENDPOINT)
-      .then(response => response.json())
-      .then(data => {
-        const container = document.getElementById("gallery-container");
+function loadSection(folderId, sectionId) {
+  fetch(`${DEPLOY_URL}?id=${folderId}`)
+    .then(res => res.json())
+    .then(data => {
+      const section = document.getElementById(sectionId);
+      data.folders.forEach(group => {
+        const groupBox = document.createElement("div");
+        groupBox.className = "comic-card";
 
-        data.folders.forEach(group => {
-          const groupBox = document.createElement("div");
-          groupBox.className = "comic-group";
+        // グループタイトル
+        const title = document.createElement("div");
+        title.className = "comic-caption";
+        title.textContent = group.title;
+        groupBox.appendChild(title);
 
-          const title = document.createElement("div");
-          title.className = "comic-caption";
-          title.textContent = group.title;
-          groupBox.appendChild(title);
+        // サムネイル（1枚目）
+        const thumb = document.createElement("img");
+        thumb.src = group.images[0];
+        thumb.className = "thumbnail";
+        groupBox.appendChild(thumb);
 
-          const scrollBox = document.createElement("div");
-          scrollBox.className = "comic-scroll";
+        groupBox.addEventListener("click", () => {
+      openSeries(group.images, group.title);
+    });
+        
 
-          const thumb = document.createElement("div");
-          thumb.className = "comic-card";
-
-          const img = document.createElement("img");
-          img.className = "thumbnail";
-          img.src = group.images[0];
-          img.onclick = () => openSeries(group.images);
-
-          thumb.appendChild(img);
-          scrollBox.appendChild(thumb);
-          groupBox.appendChild(scrollBox);
-          container.appendChild(groupBox);
-        });
+        section.appendChild(groupBox);
       });
+    })
+    .catch(err => console.error("Fetch error:", err));
+}
 
-    function openSeries(images) {
-      const modal = document.getElementById("modal");
-      const content = document.getElementById("modalContent");
-      content.innerHTML = "";
+function openSeries(title, images) {
+  const viewer = document.getElementById("modal");
+  const content = document.getElementById("modal-images");
+  content.innerHTML = "";
 
-      images.forEach(url => {
-        const img = document.createElement("img");
-        img.src = url;
-        img.className = "modal-image";
-        content.appendChild(img);
-      });
+  images.forEach(url => {
+    const img = document.createElement("img");
+    img.src = url;
+    img.className = "modal-image";
+    content.appendChild(img);
+  });
 
-      modal.style.display = "flex";
-    }
+  viewer.style.display = "flex";
+}
 
-    function closeModal(event) {
-      if (event.target.id === "modal") {
-        document.getElementById("modal").style.display = "none";
-      }
-    }
-  </script>
+document.getElementById("modal").addEventListener("click", (e) => {
+  if (e.target.id === "modal" || e.target.className === "modal-image") {
+    document.getElementById("modal").style.display = "none";
+  }
+});
+
+// 各フォルダID
+  const r_rakugakiId = "13l099GVScr7XZFAp4Az71cS861_cMvGM";
+  const r_mangaId = "12wZzfU7fe1eSjEpWRs5JHK6pqlHnvPZS";
+
+  loadSection(r_rakugakiId, "r_rakugaki-container");
+  loadSection(r_mangaId, "r_manga-container");
+  
+
+</script>
+
+
+
 </body>
+
 </html>
