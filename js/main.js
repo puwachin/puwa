@@ -61,49 +61,56 @@ style.innerHTML = `
 .chara.jump {
   animation: jump 0.4s ease;
 }`;
-document.head.appendChild(style);
 
-// Lightbox機能
-document.addEventListener("DOMContentLoaded", function () {
-  const viewer = document.createElement("div");
-  viewer.id = "lightbox-viewer";
-  viewer.innerHTML = `<div class="lightbox-overlay"></div><div class="lightbox-content"><img><p class="lightbox-title"></p><button class="lightbox-close">×</button></div>`;
-  document.body.appendChild(viewer);
-
+function openSeries(imageList, title = "") {
+  const viewer = document.getElementById("lightbox-viewer");
   const overlay = viewer.querySelector(".lightbox-overlay");
-  const img = viewer.querySelector("img");
-  const title = viewer.querySelector(".lightbox-title");
-  const close = viewer.querySelector(".lightbox-close");
+  const content = viewer.querySelector(".lightbox-content");
 
-  function openLightbox(src, caption) {
+  // クリア
+  content.innerHTML = "";
+
+  // タイトル（あれば）
+  if (title) {
+    const titleElem = document.createElement("div");
+    titleElem.className = "lightbox-title";
+    titleElem.textContent = title;
+    content.appendChild(titleElem);
+  }
+
+  // 画像追加
+  imageList.forEach(src => {
+    const img = document.createElement("img");
     img.src = src;
-    title.textContent = caption || "";
-    viewer.classList.add("open");
-    document.body.style.overflow = "hidden";
-  }
+    img.alt = "comic image";
+    content.appendChild(img);
+  });
 
-  function closeLightbox() {
-    viewer.classList.remove("open");
-    document.body.style.overflow = "";
-  }
+  // 閉じるボタン
 
-  overlay.addEventListener("click", closeLightbox);
-  close.addEventListener("click", closeLightbox);
+  viewer.classList.add("open");
+}
 
-  document.querySelectorAll(".card img").forEach((image) => {
-    image.addEventListener("click", function () {
-      const src = this.src;
-      const caption = this.dataset.title || this.alt;
-      openLightbox(src, caption);
+// ページ読み込み後にクリックイベントを設定
+window.addEventListener("DOMContentLoaded", () => {
+  const triggers = document.querySelectorAll("[data-images]");
+  triggers.forEach(trigger => {
+    trigger.addEventListener("click", () => {
+      const images = JSON.parse(trigger.getAttribute("data-images"));
+      const title = trigger.getAttribute("data-title") || "";
+      openSeries(images, title);
     });
   });
 });
 
-const image = document.createElement('img');
-image.src = imgUrl;
-image.className = 'thumbnail';
+document.addEventListener("DOMContentLoaded", () => {
+  const viewer = document.getElementById("lightbox-viewer");
 
-const card = document.createElement("div");
-card.className = "card";
-card.appendChild(img);
-container.appendChild(card);
+  // Lightbox外側をクリックで閉じる（overlayでなくviewerに適用）
+  viewer.addEventListener("click", (e) => {
+    // lightbox-content以外のクリックで閉じる
+    if (!e.target.closest(".lightbox-content")) {
+      viewer.classList.remove("open");
+    }
+  });
+});

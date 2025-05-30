@@ -6,75 +6,72 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>らくがきギャラリー</title>
   <link rel="stylesheet" href="css/style.css">
-  <script src="main.js" defer></script>
+  <script src="js/main.js" defer></script>
 </head>
 <body>
   <div class="wrapper">
     <h1 class="main-title">らくがき</h1>
 
+    <!-- 自動挿入用のギャラリーエリア -->
+<div id="auto-gallery" class="notice-box">
+  <h2 class="section-title">らくがき</h2>
+  <!-- JavaScriptがここに内容を追加します -->
     <div id="gallery-container"></div>
   </div>
-
-  <!-- モーダル -->
-  <div id="modal" class="modal" onclick="closeModal(event)">
-    <div class="modal-content" id="modalContent"></div>
-  </div>
+  
+</div>
 
   <script>
-    const GAS_ENDPOINT = "https://script.google.com/macros/s/AKfycbwjTytPSj0qzU7vnAtvwtaMwnUPntiTa8ZQXsDcE1w5hOY_qRv6no_evO9EYOvjNy3K6A/exec";
+  const GAS_ENDPOINT = "https://script.google.com/macros/s/AKfycbxoHPHWZFd2XNqa0A4Bg8kFBVE5P1UZSt25G5ZwiVpkAP7JE8WFPhqRYQAXG0YFB4myNg/exec";
 
-    fetch(GAS_ENDPOINT)
-      .then(response => response.json())
-      .then(data => {
-        const container = document.getElementById("gallery-container");
+  fetch(GAS_ENDPOINT)
+    .then(response => response.json())
+    .then(data => {
+      const container = document.getElementById("gallery-container");
 
-        data.folders.forEach(group => {
-          const groupBox = document.createElement("div");
-          groupBox.className = "comic-group";
+      const scrollBox = document.createElement("div");
+      scrollBox.className = "comic-scroll";
 
-          const title = document.createElement("div");
-          title.className = "comic-caption";
-          title.textContent = group.title;
-          groupBox.appendChild(title);
+      data.folders.forEach(group => {
+        const card = document.createElement("div");
+        card.className = "comic-card";
+        card.setAttribute("data-images", JSON.stringify(group.images));
+        card.setAttribute("data-title", group.title);
 
-          const scrollBox = document.createElement("div");
-          scrollBox.className = "comic-scroll";
+        const caption = document.createElement("div");
+        caption.className = "comic-caption";
+        caption.textContent = group.title;
+        card.appendChild(caption);
 
-          const thumb = document.createElement("div");
-          thumb.className = "comic-card";
+        const img = document.createElement("img");
+        img.src = group.images[0];
+        img.className = "thumbnail";
+        card.appendChild(img);
 
-          const img = document.createElement("img");
-          img.className = "thumbnail";
-          img.src = group.images[0];
-          img.onclick = () => openSeries(group.images);
+        scrollBox.appendChild(card);
+      });
 
-          thumb.appendChild(img);
-          scrollBox.appendChild(thumb);
-          groupBox.appendChild(scrollBox);
-          container.appendChild(groupBox);
+      container.appendChild(scrollBox);
+
+      // 自動追加要素にイベントバインド（重要！）
+      const newCards = container.querySelectorAll(".comic-card");
+      newCards.forEach(card => {
+        card.addEventListener("click", () => {
+          const images = JSON.parse(card.getAttribute("data-images"));
+          const title = card.getAttribute("data-title") || "";
+          openSeries(images, title);
         });
       });
+    });
+</script>
+<!-- Lightbox構造（新しい画像表示モーダル） -->
+<div id="lightbox-viewer" class="lightbox-viewer">
+  <div class="lightbox-overlay">
+    <div class="lightbox-content">
+      <!-- JavaScriptで画像やタイトルが挿入されます -->
+    </div>
+  </div>
+</div>
 
-    function openSeries(images) {
-      const modal = document.getElementById("modal");
-      const content = document.getElementById("modalContent");
-      content.innerHTML = "";
-
-      images.forEach(url => {
-        const img = document.createElement("img");
-        img.src = url;
-        img.className = "modal-image";
-        content.appendChild(img);
-      });
-
-      modal.style.display = "flex";
-    }
-
-    function closeModal(event) {
-      if (event.target.id === "modal") {
-        document.getElementById("modal").style.display = "none";
-      }
-    }
-  </script>
 </body>
 </html>
