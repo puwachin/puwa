@@ -1,36 +1,5 @@
 
 
-function openSeries(images) {
-  const container = document.getElementById("lightbox-content");
-  container.innerHTML = '';
-  images.forEach(src => {
-    const img = document.createElement("img");
-    img.src = src;
-    container.appendChild(img);
-  });
-  document.getElementById("lightbox").style.display = "flex";
-}
-
-function closeLightbox() {
-  document.getElementById("lightbox").style.display = "none";
-}
-
-function openSeries(images) {
-  const container = document.getElementById("lightbox-content");
-  container.innerHTML = '';
-
-  images.forEach(src => {
-    const img = document.createElement("img");
-    img.src = src;
-    container.appendChild(img);
-  });
-
-  const spacer = document.createElement("div");
-  spacer.style.height = "25vh";
-  container.appendChild(spacer);
-
-  document.getElementById("lightbox").style.display = "flex";
-}
 
 document.querySelectorAll('.chara').forEach(character => {
   // 初期表示で確実にフェードインするように
@@ -62,15 +31,14 @@ style.innerHTML = `
   animation: jump 0.4s ease;
 }`;
 
-function openSeries(imageList, title = "") {
+
+// ✅ ライトボックスを開く関数
+function openSeries(images, title = "") {
   const viewer = document.getElementById("lightbox-viewer");
-  const overlay = viewer.querySelector(".lightbox-overlay");
   const content = viewer.querySelector(".lightbox-content");
 
-  // クリア
   content.innerHTML = "";
 
-  // タイトル（あれば）
   if (title) {
     const titleElem = document.createElement("div");
     titleElem.className = "lightbox-title";
@@ -78,37 +46,71 @@ function openSeries(imageList, title = "") {
     content.appendChild(titleElem);
   }
 
-  // 画像追加
-  imageList.forEach(src => {
+  images.forEach(src => {
     const img = document.createElement("img");
     img.src = src;
     img.alt = "comic image";
     content.appendChild(img);
   });
 
-  // 閉じるボタン
-
   viewer.classList.add("open");
 }
 
-// ページ読み込み後にクリックイベントを設定
-window.addEventListener("DOMContentLoaded", () => {
-  const triggers = document.querySelectorAll("[data-images]");
-  triggers.forEach(trigger => {
-    trigger.addEventListener("click", () => {
-      const images = JSON.parse(trigger.getAttribute("data-images"));
-      const title = trigger.getAttribute("data-title") || "";
-      openSeries(images, title);
-    });
+// ✅ 背景クリックでライトボックスを閉じる
+document.addEventListener("DOMContentLoaded", () => {
+  const viewer = document.getElementById("lightbox-viewer");
+  viewer.addEventListener("click", (e) => {
+    // クリックされた要素が viewer 自身か overlay の場合のみ閉じる
+    if (e.target === viewer || e.target.classList.contains("lightbox-overlay")) {
+      viewer.classList.remove("open");
+    }
   });
 });
 
-document.addEventListener("DOMContentLoaded", () => {
-  const viewer = document.getElementById("lightbox-viewer");
-  const overlay = document.querySelector(".lightbox-overlay");
+// ✅ カード生成＆クリックイベント設定
+async function loadSection(folderId, sectionId) {
+  try {
+    const response = await fetch(`https://script.google.com/macros/s/AKfycbzsOUF9_3-R2HEvGXoLhyAKsA9cvGEbauwwYGR6kfmASwjULIX0N9S0JgX90a3LDTDSww/exec?id=${folderId}`);
+    const data = await response.json();
 
-  // 背景（オーバーレイ）をタップしたら閉じる（スマホ対応）
-  overlay.addEventListener("click", () => {
-    viewer.classList.remove("open");
-  });
+    const section = document.getElementById(sectionId);
+    section.innerHTML = "";
+
+    data.folders.forEach(group => {
+      const card = document.createElement("div");
+      card.className = "comic-card";
+      card.setAttribute("data-images", JSON.stringify(group.images));
+      card.setAttribute("data-title", group.title || "");
+
+      const caption = document.createElement("div");
+      caption.className = "comic-caption";
+      caption.textContent = group.title;
+      card.appendChild(caption);
+
+      const thumbnail = document.createElement("img");
+      thumbnail.src = group.images[0];
+      thumbnail.className = "thumbnail";
+      card.appendChild(thumbnail);
+
+      // ✅ クリックイベント
+      card.addEventListener("click", () => {
+        openSeries(group.images, group.title);
+      });
+
+      section.appendChild(card);
+    });
+  } catch (error) {
+    console.error("読み込みエラー:", error);
+  }
+}
+
+// ✅ 各セクションを読み込む部分（いじらない！）
+document.addEventListener("DOMContentLoaded", () => {
+  const rakugakiId = "1-1DLH8xvA1Mt6YZAGZluVpevqWmwjsJ0";
+  const mangaId = "1-2_2G9hCjI65nr34Ys1KRoIcR47N7ln8";
+  const etcId = "13k6aABhV2ooWFG6bQ_gnuwpFhCR6QHYO";
+
+  loadSection(rakugakiId, "rakugaki-container");
+  loadSection(mangaId, "manga-container");
+  loadSection(etcId, "etc-container");
 });
