@@ -524,10 +524,6 @@ line-height: 40px;
   border-radius: 4px;
 }
 
-.lightbox-viewer.open {
-  overflow-y: hidden; /* モーダル表示中に背景のスクロールバーを隠す */
-}
-
 .lightbox-content {
   max-height: 100vh;
   overflow-y: auto;
