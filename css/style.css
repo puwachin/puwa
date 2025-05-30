@@ -461,12 +461,12 @@ line-height: 40px;
   overflow-y: auto;
   display: none;
   justify-content: center;
-  align-items: center;
 }
 
 /* 表示ON */
 .lightbox-viewer.open {
   display: flex;
+  overflow-y: auto;
 }
 
 /* スクロール可能な内容領域 */
@@ -525,23 +525,23 @@ line-height: 40px;
 }
 
 .lightbox-content {
-  max-height: 100vh;
-  overflow-y: auto;
   -ms-overflow-style: none;  /* IE / Edge */
   scrollbar-width: none;     /* Firefox */
+  max-height: none; /* これで中身に合わせて伸びる！ */
+  overflow-y: auto;
 }
 
 .lightbox-content::-webkit-scrollbar {
   display: none;             /* Chrome, Safari */
 }
 
-.lightbox-content::after {
-  content: "";
-  display: block;
-  height: 100vh; /* ここを調整すればスクロールの終点が伸びます */
-}
+
 
 .thumbnail {
   border: none;
   outline: none;
+}
+
+.modal {
+  overflow-y: auto; /* ← これを追加するだけで、内部に余白がある場合にスクロールする！ */
 }

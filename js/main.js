@@ -39,13 +39,6 @@ function openSeries(images, title = "") {
 
   content.innerHTML = "";
 
-  if (title) {
-    const titleElem = document.createElement("div");
-    titleElem.className = "lightbox-title";
-    titleElem.textContent = title;
-    content.appendChild(titleElem);
-  }
-
   images.forEach(src => {
     const img = document.createElement("img");
     img.src = src;
