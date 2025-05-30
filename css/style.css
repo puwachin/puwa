@@ -458,6 +458,7 @@ line-height: 40px;
   height: 100%;
   background: rgba(0, 0, 0, 0.8);
   z-index: 9999;
+  overflow-y: auto;
   display: none;
   justify-content: center;
   align-items: center;
@@ -469,26 +470,24 @@ line-height: 40px;
 }
 
 /* スクロール可能な内容領域 */
+/* Lightbox内の画像表示領域 */
 .lightbox-content {
-  position: relative;
-  max-width: 90%;
-  max-height: 90%;
+  max-height: 80vh;
   overflow-y: auto;
-  background: transparent;
-  padding: 5vh 0 25vh 0;
+  padding: 5vh 2vw 10vh 2vw;
   display: flex;
   flex-direction: column;
   align-items: center;
-  z-index: 10;
+  gap: 2vh;
   box-sizing: border-box;
+  overscroll-behavior: contain;
 }
 
-/* 表示する画像 */
+/* 画像サイズを統一して可読性を保つ */
 .lightbox-content img {
   max-width: 100%;
   height: auto;
-  display: block;
-  margin: 0 auto 1em auto;
+  border-radius: 10px;
 }
 
 /* タイトル */
@@ -538,6 +537,12 @@ line-height: 40px;
 
 .lightbox-content::-webkit-scrollbar {
   display: none;             /* Chrome, Safari */
+}
+
+.lightbox-content::after {
+  content: "";
+  display: block;
+  height: 50vh; /* ここを調整すればスクロールの終点が伸びます */
 }
 
 .thumbnail {
