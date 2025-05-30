@@ -105,12 +105,10 @@ window.addEventListener("DOMContentLoaded", () => {
 
 document.addEventListener("DOMContentLoaded", () => {
   const viewer = document.getElementById("lightbox-viewer");
+  const overlay = document.querySelector(".lightbox-overlay");
 
-  // Lightbox外側をクリックで閉じる（overlayでなくviewerに適用）
-  viewer.addEventListener("click", (e) => {
-    // lightbox-content以外のクリックで閉じる
-    if (!e.target.closest(".lightbox-content")) {
-      viewer.classList.remove("open");
-    }
+  // 背景（オーバーレイ）をタップしたら閉じる（スマホ対応）
+  overlay.addEventListener("click", () => {
+    viewer.classList.remove("open");
   });
 });
