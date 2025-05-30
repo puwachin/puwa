@@ -56,12 +56,13 @@ function openSeries(images, title = "") {
   viewer.classList.add("open");
 }
 
-// ✅ 背景クリックでライトボックスを閉じる
 document.addEventListener("DOMContentLoaded", () => {
   const viewer = document.getElementById("lightbox-viewer");
-  viewer.addEventListener("click", (e) => {
-    // クリックされた要素が viewer 自身か overlay の場合のみ閉じる
-    if (e.target === viewer || e.target.classList.contains("lightbox-overlay")) {
+  const content = viewer.querySelector(".lightbox-content");
+
+  // 画像をクリックしたらライトボックスを閉じる
+  content.addEventListener("click", (e) => {
+    if (e.target.tagName === "IMG") {
       viewer.classList.remove("open");
     }
   });
