@@ -56,7 +56,7 @@ async function loadSection(folderId, sectionId) {
   loader.style.display = 'flex'; // 表示
 
   try {
-    const response = await fetch(`https://script.google.com/macros/s/AKfycbzsOUF9_3-R2HEvGXoLhyAKsA9cvGEbauwwYGR6kfmASwjULIX0N9S0JgX90a3LDTDSww/exec?id=${folderId}`);
+    const response = await fetch(`https://script.google.com/macros/s/AKfycbzB8sPPLYMejKo_2NHNVrjVqONqHWmFsqOYooJ4xzaIMEgqTLskt12hMYBR-pwfpaYW/exec?id=${folderId}`);
     const data = await response.json();
 
     const section = document.getElementById(sectionId);
