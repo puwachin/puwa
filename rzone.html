@@ -15,107 +15,44 @@
     <a href="main.html"><img src="pic/logo.png" alt="ロゴ" class="site-logo"></a>
     <h1 class="text-center">H♡らくがき</h1>
 
-    <!-- モーダル（画像を拡大表示する領域） -->
-<div id="modal" class="modal">
-  <div class="modal-content" id="modal-images"></div>
-</div>
-
-<!-- ライトボックス -->
-<div id="lightbox-viewer" class="lightbox-viewer">
-  <div class="lightbox-overlay"></div> <!-- 背景クリックで閉じる -->
-  <div class="lightbox-content"></div>
-</div>
-
+<!-- モーダル（画像を拡大表示する領域） -->
+    <div id="lightbox-viewer" class="lightbox-viewer">
+      <div class="lightbox-content"></div>
+    </div>
 
     <!-- らくがき -->
-<div class="notice-box">
-  <h2 class="section-title">らくがき</h2>
-  <!-- JavaScriptがここに内容を追加します -->
-    <div id="r_rakugaki-container" class="comic-scroll"></div>
+    <div class="notice-box">
+      <h2 class="section-title">らくがき</h2>
+      <div id="r_rakugaki-container" class="comic-scroll"></div>
+      <div id="r_rakugaki-loader" class="loader-container" style="display: none;">
+        <div class="loader"></div>
+      </div>
+    </div>
+
+    <!-- まんが -->
+    <div class="notice-box">
+      <h2 class="section-title">まんが</h2>
+      <div id="r_manga-container" class="comic-scroll"></div>
+      <div id="r_manga-loader" class="loader-container" style="display: none;">
+        <div class="loader"></div>
+      </div>
+    </div>
+
   </div>
 
-      <!-- まんが -->
-<div class="notice-box">
-  <h2 class="section-title">まんが</h2>
-  <!-- JavaScriptがここに内容を追加します -->
-    <div id="r_manga-container" class="comic-scroll"></div>
-  </div>
-  
-</div>
-
-<footer class="back-home">
-  <a href="rakugaki.html" class="home-button">らくがきに戻る</a>
+  <footer class="back-home">
+    <a href="rakugaki.html" class="home-button">らくがきに戻る</a>
     <a href="main.html" class="home-button">🏠 ホームに戻る</a>
   </footer>
-
-  <script>
-const DEPLOY_URL = "https://script.google.com/macros/s/AKfycbzsOUF9_3-R2HEvGXoLhyAKsA9cvGEbauwwYGR6kfmASwjULIX0N9S0JgX90a3LDTDSww/exec";
-
-function loadSection(folderId, sectionId) {
-  fetch(`${DEPLOY_URL}?id=${folderId}`)
-    .then(res => res.json())
-    .then(data => {
-      const section = document.getElementById(sectionId);
-      data.folders.forEach(group => {
-        const groupBox = document.createElement("div");
-        groupBox.className = "comic-card";
-
-        // グループタイトル
-        const title = document.createElement("div");
-        title.className = "comic-caption";
-        title.textContent = group.title;
-        groupBox.appendChild(title);
-
-        // サムネイル（1枚目）
-        const thumb = document.createElement("img");
-        thumb.src = group.images[0];
-        thumb.className = "thumbnail";
-        groupBox.appendChild(thumb);
-
-        groupBox.addEventListener("click", () => {
-      openSeries(group.images, group.title);
-    });
-        
-
-        section.appendChild(groupBox);
-      });
-    })
-    .catch(err => console.error("Fetch error:", err));
-}
-
-function openSeries(title, images) {
-  const viewer = document.getElementById("modal");
-  const content = document.getElementById("modal-images");
-  content.innerHTML = "";
-
-  images.forEach(url => {
-    const img = document.createElement("img");
-    img.src = url;
-    img.className = "modal-image";
-    content.appendChild(img);
-  });
-
-  viewer.style.display = "flex";
-}
-
-document.getElementById("modal").addEventListener("click", (e) => {
-  if (e.target.id === "modal" || e.target.className === "modal-image") {
-    document.getElementById("modal").style.display = "none";
-  }
-});
-
-// 各フォルダID
-  const r_rakugakiId = "13l099GVScr7XZFAp4Az71cS861_cMvGM";
-  const r_mangaId = "12wZzfU7fe1eSjEpWRs5JHK6pqlHnvPZS";
-
-  loadSection(r_rakugakiId, "r_rakugaki-container");
-  loadSection(r_mangaId, "r_manga-container");
-  
-
-</script>
-
-
-
 </body>
-
 </html>
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const rakugakiId = "13l099GVScr7XZFAp4Az71cS861_cMvGM";
+    const mangaId = "12wZzfU7fe1eSjEpWRs5JHK6pqlHnvPZS";
+
+    loadSection(rakugakiId, "r_rakugaki-container");
+    loadSection(mangaId, "r_manga-container");
+  });
+</script>

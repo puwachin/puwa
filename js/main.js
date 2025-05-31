@@ -49,20 +49,12 @@ function openSeries(images, title = "") {
   viewer.classList.add("open");
 }
 
-document.addEventListener("DOMContentLoaded", () => {
-  const viewer = document.getElementById("lightbox-viewer");
-  const content = viewer.querySelector(".lightbox-content");
-
-  // 画像をクリックしたらライトボックスを閉じる
-  content.addEventListener("click", (e) => {
-    if (e.target.tagName === "IMG") {
-      viewer.classList.remove("open");
-    }
-  });
-});
-
-// ✅ カード生成＆クリックイベント設定
+// スピナー表示つきのロード処理
 async function loadSection(folderId, sectionId) {
+  const loaderId = sectionId.replace('-container', '-loader');
+  const loader = document.getElementById(loaderId);
+  loader.style.display = 'flex'; // 表示
+
   try {
     const response = await fetch(`https://script.google.com/macros/s/AKfycbzsOUF9_3-R2HEvGXoLhyAKsA9cvGEbauwwYGR6kfmASwjULIX0N9S0JgX90a3LDTDSww/exec?id=${folderId}`);
     const data = await response.json();
@@ -86,7 +78,7 @@ async function loadSection(folderId, sectionId) {
       thumbnail.className = "thumbnail";
       card.appendChild(thumbnail);
 
-      // ✅ クリックイベント
+      // ライトボックス開く
       card.addEventListener("click", () => {
         openSeries(group.images, group.title);
       });
@@ -95,11 +87,40 @@ async function loadSection(folderId, sectionId) {
     });
   } catch (error) {
     console.error("読み込みエラー:", error);
+  } finally {
+    loader.style.display = 'none'; // 完了後に非表示
   }
 }
 
-// ✅ 各セクションを読み込む部分（いじらない！）
+// ライトボックス開く関数
+function openSeries(images, title = "") {
+  const viewer = document.getElementById("lightbox-viewer");
+  const content = viewer.querySelector(".lightbox-content");
+
+  content.innerHTML = "";
+
+  images.forEach(src => {
+    const img = document.createElement("img");
+    img.src = src;
+    img.alt = "comic image";
+    content.appendChild(img);
+  });
+
+  viewer.classList.add("open");
+}
+
+// 画像クリックでライトボックス閉じる
 document.addEventListener("DOMContentLoaded", () => {
+  const viewer = document.getElementById("lightbox-viewer");
+  const content = viewer.querySelector(".lightbox-content");
+
+  content.addEventListener("click", (e) => {
+    if (e.target.tagName === "IMG") {
+      viewer.classList.remove("open");
+    }
+  });
+
+  // セクションロード
   const rakugakiId = "1-1DLH8xvA1Mt6YZAGZluVpevqWmwjsJ0";
   const mangaId = "1-2_2G9hCjI65nr34Ys1KRoIcR47N7ln8";
   const etcId = "13k6aABhV2ooWFG6bQ_gnuwpFhCR6QHYO";

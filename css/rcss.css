@@ -545,3 +545,28 @@ line-height: 40px;
 .modal {
   overflow-y: auto; /* ← これを追加するだけで、内部に余白がある場合にスクロールする！ */
 }
+
+/* スピナーの共通クラス */
+.loader {
+  border: 4px solid #f3f3f3; /* 外枠の色 */
+  border-top: 4px solid #e742f6; /* 回転部分の色 */
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  animation: spin 1s linear infinite;
+  margin: 0 auto;
+}
+
+/* スピンアニメーション */
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* 各枠にローダーを表示する領域 */
+.loader-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px 0;
+}

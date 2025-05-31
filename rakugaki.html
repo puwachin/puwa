@@ -15,112 +15,43 @@
     <a href="main.html"><img src="pic/logo.png" alt="ロゴ" class="site-logo"></a>
     <h1 class="text-center">らくがき</h1>
 
-    <!-- モーダル（画像を拡大表示する領域） -->
-<div id="modal" class="modal">
-  <div class="modal-content" id="modal-images"></div>
-</div>
-
-<!-- ライトボックス -->
-<div id="lightbox-viewer" class="lightbox-viewer">
-  <div class="lightbox-overlay"></div> <!-- 背景クリックで閉じる -->
-  <div class="lightbox-content"></div>
-</div>
-
+<!-- モーダル（画像を拡大表示する領域） -->
+    <div id="lightbox-viewer" class="lightbox-viewer">
+      <div class="lightbox-content"></div>
+    </div>
 
     <!-- らくがき -->
-<div class="notice-box">
-  <h2 class="section-title">らくがき</h2>
-  <!-- JavaScriptがここに内容を追加します -->
-    <div id="rakugaki-container" class="comic-scroll"></div>
+    <div class="notice-box">
+      <h2 class="section-title">らくがき</h2>
+      <div id="rakugaki-container" class="comic-scroll"></div>
+      <div id="rakugaki-loader" class="loader-container" style="display: none;">
+        <div class="loader"></div>
+      </div>
+    </div>
+
+    <!-- まんが -->
+    <div class="notice-box">
+      <h2 class="section-title">まんが</h2>
+      <div id="manga-container" class="comic-scroll"></div>
+      <div id="manga-loader" class="loader-container" style="display: none;">
+        <div class="loader"></div>
+      </div>
+    </div>
+
+    <!-- その他 -->
+    <div class="notice-box">
+      <h2 class="section-title">その他</h2>
+      <div id="etc-container" class="comic-scroll"></div>
+      <div id="etc-loader" class="loader-container" style="display: none;">
+        <div class="loader"></div>
+      </div>
+    </div>
+
   </div>
 
-      <!-- まんが -->
-<div class="notice-box">
-  <h2 class="section-title">まんが</h2>
-  <!-- JavaScriptがここに内容を追加します -->
-    <div id="manga-container" class="comic-scroll"></div>
-  </div>
-
-      <!-- その他 -->
-<div class="notice-box">
-  <h2 class="section-title">その他</h2>
-  <!-- JavaScriptがここに内容を追加します -->
-    <div id="etc-container" class="comic-scroll"></div>
-  </div>
-  
-</div>
-
-<footer class="back-home">
+  <footer class="back-home">
     <a href="main.html" class="home-button">🏠 ホームに戻る</a>
   </footer>
   <a href="rstop.html"><p>♥</p></a>
-
-  <script>
-const DEPLOY_URL = "https://script.google.com/macros/s/AKfycbzsOUF9_3-R2HEvGXoLhyAKsA9cvGEbauwwYGR6kfmASwjULIX0N9S0JgX90a3LDTDSww/exec";
-
-function loadSection(folderId, sectionId) {
-  fetch(`${DEPLOY_URL}?id=${folderId}`)
-    .then(res => res.json())
-    .then(data => {
-      const section = document.getElementById(sectionId);
-      data.folders.forEach(group => {
-        const groupBox = document.createElement("div");
-        groupBox.className = "comic-card";
-
-        // グループタイトル
-        const title = document.createElement("div");
-        title.className = "comic-caption";
-        title.textContent = group.title;
-        groupBox.appendChild(title);
-
-        // サムネイル（1枚目）
-        const thumb = document.createElement("img");
-        thumb.src = group.images[0];
-        thumb.className = "thumbnail";
-        groupBox.appendChild(thumb);
-        
-
-        section.appendChild(groupBox);
-      });
-    })
-    .catch(err => console.error("Fetch error:", err));
-}
-
-function openSeries(title, images) {
-  const viewer = document.getElementById("modal");
-  const content = document.getElementById("modal-images");
-  content.innerHTML = "";
-
-  images.forEach(url => {
-    const img = document.createElement("img");
-    img.src = url;
-    img.className = "modal-image";
-    content.appendChild(img);
-  });
-
-  viewer.style.display = "flex";
-}
-
-document.getElementById("modal").addEventListener("click", (e) => {
-  if (e.target.id === "modal" || e.target.className === "modal-image") {
-    document.getElementById("modal").style.display = "none";
-  }
-});
-
-// 各フォルダID
-  const rakugakiId = "1-1DLH8xvA1Mt6YZAGZluVpevqWmwjsJ0";
-  const mangaId = "1-2_2G9hCjI65nr34Ys1KRoIcR47N7ln8";
-  const etcId = "13k6aABhV2ooWFG6bQ_gnuwpFhCR6QHYO";
-
-  loadSection(rakugakiId, "rakugaki-container");
-  loadSection(mangaId, "manga-container");
-  loadSection(etcId, "etc-container");
-  
-
-</script>
-
-
-
 </body>
-
 </html>
