@@ -570,3 +570,14 @@ line-height: 40px;
   align-items: center;
   padding: 20px 0;
 }
+
+.clearCacheBtn {
+  cursor: pointer !important;
+  color: #e742f6 !important;
+  border-bottom: 1px solid #e742f6 !important;
+  display: inline-block !important;
+}
+
+.clearCacheBtn:hover {
+  opacity: 0.8; /* ホバーでちょっと薄くなる演出 */
+}
