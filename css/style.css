@@ -616,3 +616,7 @@ line-height: 40px;
 .shosai:visited {
   color: #e67e22 !important;
 }
+
+.shosai:link {
+  color: #e67e22 !important;
+}
