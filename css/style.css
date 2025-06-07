@@ -7,6 +7,10 @@ body {
 h1, h2 {
   font-family: 'Zen Maru Gothic', cursive;
 }
+
+.rounded-image{
+  border-radius: 16px;
+}
 .notice-box {
   background: white;
   padding: 20px;
@@ -569,4 +573,21 @@ line-height: 40px;
   justify-content: center;
   align-items: center;
   padding: 20px 0;
+}
+
+.sns-icons {
+  display: flex;        /* 横並びにする！ */
+  gap: 10px;            /* アイコン同士の間隔 */
+  align-items: center;  /* 縦位置を揃える（お好みで） */
+  justify-content: center;
+}
+
+.sns-icons img {
+  width: 32px;          /* アイコンサイズ */
+  height: 32px;
+  transition: transform 0.3s; /* ホバーでアニメ */
+}
+
+.sns-icons a:hover img {
+  transform: scale(1.1); /* ホバーで少し大きくする */
 }
