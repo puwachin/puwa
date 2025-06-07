@@ -1,0 +1,61 @@
+
+  <!DOCTYPE html>
+<html lang="ja">
+    <head>
+  <meta charset="UTF-8">
+  <title>メッセージ</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, noarchive, nofollow, noimageindex">
+  <link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic&family=Yusei+Magic&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="koibumi_app/koibumi.css">
+<a href="main.html"><img src="pic/logo.png" alt="ロゴ" class="site-logo"></a>
+</head>
+<h1 class="text-center">メッセージ</h1>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-1NQ1YVWBNP"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-1NQ1YVWBNP');
+</script>
+
+<body>
+    <div class="notice-box">
+    <!-- コイブミここから -->
+<div id="koibumi_wrap">
+<div id="koibumi_form">
+<input type="hidden" id="koibumi_token">
+
+
+
+<!-- 複数行テキストエリアの場合は↓の行を使ってください -->
+<textarea name="name" rows="5" id="koibumi_text" placeholder="ひとこと送る"></textarea>
+
+<button type="submit" id="koibumi_btn">送信</button>
+</div>
+<p class="attention">メッセージは<span id="koibumi_limitMessage"></span>文字まで、同一IPアドレスからの送信は一日<span id="koibumi_limitIP"></span>回まで<br>
+現在文字数　<span id="koibumi_nowlength">0</span>文字</p>
+<p id="koibumi_alert" style="display: none;"></p>
+<!-- お礼メッセージここから -->
+<div id="koibumi_thanks" style="display:none;">
+<div class="box">
+<img src="koibumi_app/example.jpg" alt="THANK YOU!">
+<p>ありがとう！</p>
+</div>
+</div>
+<!-- お礼メッセージここまで -->
+</div>
+<!-- コイブミここまで -->
+  </div>  
+  
+  <footer class="back-home">
+  <a href="main.html" class="home-button">🏠 ホームに戻る</a>
+</footer>
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<script src="koibumi_app/koibumi.js"></script></body>
+
+
