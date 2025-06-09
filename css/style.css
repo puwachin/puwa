@@ -122,6 +122,14 @@ h1, h2 {
   width: 300px;
   animation-delay: 0.8s;
 }
+
+@media (min-width: 768px) {
+  .kanban {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+}
+
 .jump {
   animation-name: jump;
   animation-duration: 0.4s;
